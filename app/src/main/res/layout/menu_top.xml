@@ -1,0 +1,61 @@
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="50dp"
+    android:background="#046B88">
+
+    <ImageView
+        android:id="@+id/button_notification"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_centerVertical="true"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="10dp"
+        android:src="@drawable/ic_notification"
+        android:clickable="true"
+        />
+
+    <ImageView
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_centerVertical="true"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="50dp"
+        android:src="@drawable/ic_defi"
+        android:clickable="true"
+        android:id="@+id/button_listerDefi" />
+
+    <ImageView
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_centerVertical="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="90dp"
+        android:src="@drawable/ic_lancement_defi"
+        android:clickable="true"
+        android:id="@+id/button_lancerDefi"
+        />
+
+    <ImageView
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_centerVertical="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="50dp"
+        android:src="@drawable/ic_classement"
+        android:clickable="true"
+        android:id="@+id/button_classement"
+        />
+
+    <ImageView
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_centerVertical="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="10dp"
+        android:src="@drawable/ic_config"
+        android:clickable="true"
+        android:id="@+id/button_config"
+        />
+</RelativeLayout>
