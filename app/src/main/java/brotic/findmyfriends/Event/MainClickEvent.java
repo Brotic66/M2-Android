@@ -1,8 +1,9 @@
 package brotic.findmyfriends.Event;
 
 import android.view.View;
+
 import brotic.findmyfriends.R;
-import brotic.findmyfriends.Service.ActivityFactory;
+import brotic.findmyfriends.Service.ActivityLauncher;
 
 /**
  * @author Brice VICO
@@ -14,10 +15,10 @@ public class MainClickEvent implements View.OnClickListener {
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.button_connexion :
-                ActivityFactory.create("ConnexionActivity", true, null);
+                ActivityLauncher.create("ConnexionActivity", true, null);
                 break;
             case R.id.button_inscription :
-                ActivityFactory.create("InscriptionActivity", true, null);
+                ActivityLauncher.create("InscriptionActivity", true, null);
                 break;
         }
     }

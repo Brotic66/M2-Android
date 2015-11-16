@@ -66,7 +66,7 @@ public class MyActivity extends Activity {
 
         if (!getSecurity().isGranted(act))
         {
-            //ActivityFactory.createMainActivity();
+            //ActivityLauncher.createMainActivity();
         }
     }
 

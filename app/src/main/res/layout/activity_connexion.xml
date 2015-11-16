@@ -5,9 +5,6 @@
     android:background="#fff"
     tools:context="brotic.selfidefi_v1.Activity.MainActivity">
 
-
-    <include layout="@layout/menu_top_hl" />
-
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="80dp">

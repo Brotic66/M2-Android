@@ -4,7 +4,6 @@ import java.io.Serializable;
 
 import brotic.findmyfriends.Exception.SecurityContextException;
 import brotic.findmyfriends.Model.Utilisateur;
-import brotic.findmyfriends.Service.ActivityFactory;
 
 /**
  * @author Brice VICO
@@ -43,7 +42,7 @@ public class SecurityContext implements Serializable {
     public void login(Utilisateur u, String s) throws SecurityContextException {
         this.e.login(u, s);
 
-        // Création de l'activité : ActivityFactory.createActualiteActivityLogin();
+        // Création de l'activité : ActivityLauncher.createActualiteActivityLogin();
     }
 
     public void logout() throws SecurityContextException {

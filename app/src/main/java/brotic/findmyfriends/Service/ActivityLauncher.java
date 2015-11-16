@@ -12,7 +12,7 @@ import brotic.findmyfriends.Security.MyActivity;
  * @version 1.0.0
  * @date 04/11/2015
  */
-public class ActivityFactory {
+public class ActivityLauncher {
 
     public static void create(String name, boolean finish, ArrayList<Object> args) {
         MyActivity.getAct().removeAllTasks();

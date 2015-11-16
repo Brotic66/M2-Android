@@ -13,7 +13,7 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import brotic.findmyfriends.Security.MyActivity;
 import brotic.findmyfriends.Security.SecurityContext;
-import brotic.findmyfriends.Service.ActivityFactory;
+import brotic.findmyfriends.Service.ActivityLauncher;
 
 
 public class MainPresenter {
@@ -38,7 +38,7 @@ public class MainPresenter {
                 @Override
                 public void onFinish() {
                     MyActivity.getAct().finish();
-                    // activité d'aprés connexion: ActivityFactory.createActualiteActivity();
+                    // activité d'aprés connexion: ActivityLauncher.createActualiteActivity();
                 }
             }.start();
         } catch (IOException e) {
@@ -53,7 +53,7 @@ public class MainPresenter {
                 @Override
                 public void onFinish() {
                     MyActivity.getAct().finish();
-                    ActivityFactory.create("MainActivity", true, null);
+                    ActivityLauncher.create("MainActivity", true, null);
                 }
             }.start();
         } catch (ClassNotFoundException e) {
@@ -66,7 +66,7 @@ public class MainPresenter {
                 @Override
                 public void onFinish() {
                     MyActivity.getAct().finish();
-                    ActivityFactory.create("MainActivity", true, null);
+                    ActivityLauncher.create("MainActivity", true, null);
                 }
             }.start();
         }
