@@ -27,7 +27,7 @@ import javax.xml.parsers.ParserConfigurationException;
 
 public class BroticCommunication {
 
-    private static String URL = "http://149.x.x.x/SD_Serveur/web/app.php/";
+    private static String URL = "http://127.0.0.1:8000/";
     private LinkedHashMap<String, String> paramsGet;
     private byte paramPost[];
     private String controleur;

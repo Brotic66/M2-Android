@@ -4,6 +4,8 @@ import android.content.Intent;
 
 import java.util.ArrayList;
 
+import brotic.findmyfriends.Activity.ConnexionActivity;
+import brotic.findmyfriends.Activity.InscriptionActivity;
 import brotic.findmyfriends.Activity.MainActivity;
 import brotic.findmyfriends.Security.MyActivity;
 
@@ -21,6 +23,10 @@ public class ActivityLauncher {
         switch (name) {
             case "MainActivity":
                 it.setClass(MyActivity.getAct().getBaseContext(), MainActivity.class);
+            case "ConnexionActivity":
+                it.setClass(MyActivity.getAct().getBaseContext(), ConnexionActivity.class);
+            case "InscriptionActivity":
+                it.setClass(MyActivity.getAct().getBaseContext(), InscriptionActivity.class);
         }
 
         if (finish)

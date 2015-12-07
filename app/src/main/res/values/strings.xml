@@ -1,3 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">FindMyFriends</string>
+    <string name="title_activity_main">Main Activity</string>
+    <string name="title_activity_connexion">Login Activity</string>
+    <string name="title_activity_inscription">Register Activity</string>
 </resources>
