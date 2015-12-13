@@ -45,6 +45,6 @@ public class SecurityPresenter {
     }
 
     public static void registerNext(JSONObject rcv) {
-        Toast.makeText(MyActivity.getAct().getBaseContext(), "couico", Toast.LENGTH_LONG).show();
+        Log.d("MYLOG", rcv.toString());
     }
 }

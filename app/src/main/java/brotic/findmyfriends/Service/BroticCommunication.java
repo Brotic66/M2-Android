@@ -34,7 +34,7 @@ import javax.xml.parsers.ParserConfigurationException;
 
 public class BroticCommunication {
 
-    private static String URL = "http://10.0.2.2:8000/";
+    private static String URL = "http://149.202.51.217/Server/web/app_dev.php/";
     private LinkedHashMap<String, String> paramsGet;
     private byte paramPost[];
     private String controleur;
@@ -118,8 +118,6 @@ public class BroticCommunication {
     public JSONObject getJson()
     {
         JSONObject toRtn = null;
-
-        Log.d("MYLOGGER ===== :", this.in.toString());
 
         try {
             BufferedReader reader = new BufferedReader(new InputStreamReader(this.in, "UTF-8"));
