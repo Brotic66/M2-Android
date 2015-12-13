@@ -23,10 +23,13 @@ public class ActivityLauncher {
         switch (name) {
             case "MainActivity":
                 it.setClass(MyActivity.getAct().getBaseContext(), MainActivity.class);
+                break;
             case "ConnexionActivity":
                 it.setClass(MyActivity.getAct().getBaseContext(), ConnexionActivity.class);
+                break;
             case "InscriptionActivity":
                 it.setClass(MyActivity.getAct().getBaseContext(), InscriptionActivity.class);
+                break;
         }
 
         if (finish)

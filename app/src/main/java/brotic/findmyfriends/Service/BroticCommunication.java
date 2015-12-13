@@ -6,14 +6,21 @@
 
 package brotic.findmyfriends.Service;
 
+import android.util.Log;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.xml.sax.SAXException;
 
 import java.io.BufferedInputStream;
+import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.io.OutputStream;
+import java.io.UnsupportedEncodingException;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLEncoder;
@@ -27,17 +34,19 @@ import javax.xml.parsers.ParserConfigurationException;
 
 public class BroticCommunication {
 
-    private static String URL = "http://127.0.0.1:8000/";
+    private static String URL = "http://10.0.2.2:8000/";
     private LinkedHashMap<String, String> paramsGet;
     private byte paramPost[];
     private String controleur;
     private HttpURLConnection urlConnection;
+    private InputStream in;
 
     public BroticCommunication(String controleur) {
         this.controleur = controleur;
         this.paramsGet = new LinkedHashMap<>();
         this.paramPost = null;
         this.urlConnection = null;
+        this.in = null;
     }
 
     public void addParamGet(String nom, String valeur) {
@@ -76,7 +85,7 @@ public class BroticCommunication {
      * Permet d'envoyer une requete http avec des paramètre GET et POST (facultatif) et
      * de récupérer le résultat sous forme d'un élément (DOMElement XML du W3C)
      */
-    public Element run() throws ParserConfigurationException, SAXException, IOException {
+    public void run() throws ParserConfigurationException, SAXException, IOException {
         String query = "";
 
         for(Map.Entry<String, String> entry : this.paramsGet.entrySet()) {
@@ -103,23 +112,40 @@ public class BroticCommunication {
             out.close();
         }
 
-        InputStream in = null;
+        this.in = new BufferedInputStream(this.urlConnection.getInputStream());
+    }
 
-        in = new BufferedInputStream(this.urlConnection.getInputStream());
+    public JSONObject getJson()
+    {
+        JSONObject toRtn = null;
 
-        DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
-        DocumentBuilder builder = factory.newDocumentBuilder();
-        Document document = builder.parse(in);
+        Log.d("MYLOGGER ===== :", this.in.toString());
 
-        in.close();
-        this.close();
+        try {
+            BufferedReader reader = new BufferedReader(new InputStreamReader(this.in, "UTF-8"));
+            StringBuilder strBuilder = new StringBuilder();
 
-        return document.getDocumentElement();
+            String inputStr;
+            while ((inputStr = reader.readLine()) != null)
+                strBuilder.append(inputStr);
+
+            toRtn = new JSONObject(strBuilder.toString());
+        } catch (JSONException | IOException e) {
+            e.printStackTrace();
+        }
+
+        return toRtn;
     }
 
     public void close() {
         if (this.urlConnection != null) {
             this.urlConnection.disconnect();
+        }
+
+        try {
+            this.in.close();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 }

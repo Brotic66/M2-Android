@@ -2,6 +2,7 @@ package brotic.findmyfriends.Event;
 
 import android.view.View;
 
+import brotic.findmyfriends.Presenter.SecurityPresenter;
 import brotic.findmyfriends.R;
 import brotic.findmyfriends.Service.ActivityLauncher;
 
@@ -20,6 +21,8 @@ public class MainClickEvent implements View.OnClickListener {
             case R.id.button_inscription :
                 ActivityLauncher.create("InscriptionActivity", true, null);
                 break;
+            case R.id.suivant_inscription:
+                SecurityPresenter.register();
         }
     }
 }

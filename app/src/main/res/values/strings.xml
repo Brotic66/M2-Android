@@ -4,4 +4,11 @@
     <string name="title_activity_main">Main Activity</string>
     <string name="title_activity_connexion">Login Activity</string>
     <string name="title_activity_inscription">Register Activity</string>
+    <string name="createAccount">Create account</string>
+    <string name="Pseudo">Pseudo</string>
+    <string name="password">Password</string>
+    <string name="phoneNumer">Phone number</string>
+    <string name="pseudoFull">Pseudo must be renseigned</string>
+    <string name="mdpFull">Password must be renseigned</string>
+    <string name="phoneFull">Phone number must be renseigned</string>
 </resources>

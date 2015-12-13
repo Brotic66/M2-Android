@@ -3,6 +3,7 @@ package brotic.findmyfriends.Activity;
 import android.os.Bundle;
 import android.widget.ImageView;
 
+import brotic.findmyfriends.Event.MainClickEvent;
 import brotic.findmyfriends.R;
 import brotic.findmyfriends.Security.MyActivity;
 
@@ -16,6 +17,6 @@ public class InscriptionActivity extends MyActivity {
 
         ImageView suivant = (ImageView)this.findViewById(R.id.suivant_inscription);
 
-        //suivant.setOnClickListener(new SecurityClickEvent());
+        suivant.setOnClickListener(new MainClickEvent());
     }
 }

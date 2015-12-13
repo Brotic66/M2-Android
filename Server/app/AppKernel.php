@@ -17,6 +17,7 @@ class AppKernel extends Kernel
             new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
             new AppBundle\AppBundle(),
             new ServerBundle\ServerBundle(),
+            new \Brotic66\NTAngularBundle\Brotic66NTAngularBundle()
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'), true)) {

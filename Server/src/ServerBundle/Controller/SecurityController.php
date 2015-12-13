@@ -2,12 +2,12 @@
 
 namespace ServerBundle\Controller;
 
+use Brotic66\NTAngularBundle\Controller\NTAngularController;
 use Doctrine\DBAL\Exception\UniqueConstraintViolationException;
 use ServerBundle\Entity\User;
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 
-class SecurityController extends Controller
+class SecurityController extends NTAngularController
 {
     /**
      * @param $login
@@ -29,14 +29,14 @@ class SecurityController extends Controller
             $em->persist($user);
             $em->flush();
         } catch (UniqueConstraintViolationException $e){
-            return $this->render('ServerBundle:Default:simple.json.twig', array(
-                'code' => 0,
+            return $this->NTRender(array(
+                'response' => 0,
                 'message' => 'Utilisateur existant'
             ));
     }
 
-        return $this->render('ServerBundle:Default:simple.json.twig', array(
-            'code' => 1,
+        return $this->NTRender(array(
+            'response' => 1,
             'message' => 'Inscription effectuée'
         ));
     }
@@ -56,20 +56,22 @@ class SecurityController extends Controller
         ));
 
         if (!$user)
-            return $this->render('ServerBundle:Default:simple.json.twig', array(
-                'code' => 404,
+            return $this->NTRender(array(
+                'response' => 404,
                 'message' => 'Utilisateur inconnu'
             ));
 
         if (!password_verify($password, $user->getPassword()))
-            return $this->render('ServerBundle:Default:simple.json.twig', array(
-                'code' => 0,
+            return $this->NTRender(array(
+                'response' => 0,
                 'message' => 'Mauvais mot de passe'
             ));
 
-        return $this->render('ServerBundle:Default:user.json.twig', array(
-            'code' => 1,
-            'user' => $user
+        return $this->NTRender(array(
+            'response' => 1,
+            'userId' => $user->getId(),
+            'username' => $user->getUsername(),
+            'userPhone' => $user->getPhoneNumber()
         ));
     }
 }
