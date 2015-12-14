@@ -45,6 +45,6 @@ public class SecurityPresenter {
     }
 
     public static void registerNext(JSONObject rcv) {
-        Log.d("MYLOG", rcv.toString());
+        //rcv.
     }
 }
