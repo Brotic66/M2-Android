@@ -11,4 +11,6 @@
     <string name="pseudoFull">Pseudo must be renseigned</string>
     <string name="mdpFull">Password must be renseigned</string>
     <string name="phoneFull">Phone number must be renseigned</string>
+    <string name="registerOk">Registration done</string>
+    <string name="registerError">Error on register</string>
 </resources>

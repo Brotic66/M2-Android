@@ -5,6 +5,7 @@ import android.util.Log;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import brotic.findmyfriends.Activity.InscriptionActivity;
@@ -45,6 +46,24 @@ public class SecurityPresenter {
     }
 
     public static void registerNext(JSONObject rcv) {
-        //rcv.
+        try {
+            if (rcv.getInt("response") == 1) {
+                Toast.makeText(MyActivity.getAct().getBaseContext(), R.string.registerOk, Toast.LENGTH_SHORT).show();
+                MyActivity.getAct().finish();
+            } else {
+                Toast.makeText(MyActivity.getAct().getBaseContext(), R.string.registerError, Toast.LENGTH_SHORT).show();
+            }
+        } catch (JSONException e) {
+            e.printStackTrace();
+            Toast.makeText(MyActivity.getAct().getBaseContext(), R.string.registerError, Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    public static void login() {
+
+    }
+
+    public static void loginNext() {
+
     }
 }
