@@ -49,6 +49,13 @@ class User
      */
     private $tokens;
 
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="profilPicture_url", type="string", length=1024, nullable=true)
+     */
+    private $profilPicture;
+
 
     /**
      * Get id
@@ -156,6 +163,22 @@ class User
     public function removeToken($token)
     {
         unset($this->tokens[array_search($token, $this->tokens)]);
+    }
+
+    /**
+     * @return string
+     */
+    public function getProfilPicture()
+    {
+        return $this->profilPicture;
+    }
+
+    /**
+     * @param string $profilPicture
+     */
+    public function setProfilPicture($profilPicture)
+    {
+        $this->profilPicture = $profilPicture;
     }
 }
 
