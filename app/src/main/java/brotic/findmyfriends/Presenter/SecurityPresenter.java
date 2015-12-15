@@ -1,7 +1,5 @@
 package brotic.findmyfriends.Presenter;
 
-import android.graphics.Color;
-import android.util.Log;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -91,7 +89,7 @@ public class SecurityPresenter {
 
         try {
             if (rcv.getInt("response") == 1) {
-                UserBuilder builder = (UserBuilder) BuilderFactory.create("User");
+                UserBuilder builder = (UserBuilder) BuilderFactory.create("user");
                 builder.createFromJSON(rcv);
 
                 User user = builder.getObj();

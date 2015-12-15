@@ -38,7 +38,7 @@ public class MainPresenter {
                 @Override
                 public void onFinish() {
                     MyActivity.getAct().finish();
-                    // activité d'aprés connexion: ActivityLauncher.createActualiteActivity();
+                    ActivityLauncher.create("MainLogin", true, null);
                 }
             }.start();
         } catch (IOException e) {

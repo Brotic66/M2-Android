@@ -1,12 +1,14 @@
 package brotic.findmyfriends.Service;
 
 import android.content.Intent;
+import android.util.Log;
 
 import java.util.ArrayList;
 
-import brotic.findmyfriends.Activity.ConnexionActivity;
 import brotic.findmyfriends.Activity.InscriptionActivity;
+import brotic.findmyfriends.Activity.LoginActivity;
 import brotic.findmyfriends.Activity.MainActivity;
+import brotic.findmyfriends.Activity.MainLoginActivity;
 import brotic.findmyfriends.Security.MyActivity;
 
 /**
@@ -24,14 +26,14 @@ public class ActivityLauncher {
             case "MainActivity":
                 it.setClass(MyActivity.getAct().getBaseContext(), MainActivity.class);
                 break;
-            case "ConnexionActivity":
-                it.setClass(MyActivity.getAct().getBaseContext(), ConnexionActivity.class);
+            case "LoginActivity":
+                it.setClass(MyActivity.getAct().getBaseContext(), LoginActivity.class);
                 break;
             case "InscriptionActivity":
                 it.setClass(MyActivity.getAct().getBaseContext(), InscriptionActivity.class);
                 break;
             case "MainLogin":
-
+                it.setClass(MyActivity.getAct().getBaseContext(), MainLoginActivity.class);
         }
 
         if (finish)

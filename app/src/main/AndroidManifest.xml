@@ -41,20 +41,16 @@
             android:label="@string/title_activity_main"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".Activity.ConnexionActivity"
-            android:label="@string/title_activity_connexion"
-            android:screenOrientation="portrait" />
-        <activity
             android:name=".Activity.InscriptionActivity"
             android:label="@string/title_activity_inscription"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".Activity.LoginActivity"
-            android:label="@string/title_activity_login"
-            android:screenOrientation="portrait" />
-        <activity
             android:name=".Activity.MainLoginActivity"
             android:label="@string/title_activity_main_login"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Activity.LoginActivity"
+            android:label="@string/title_activity_login"
             android:screenOrientation="portrait"/>
     </application>
 

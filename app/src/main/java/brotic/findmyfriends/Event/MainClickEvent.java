@@ -1,5 +1,6 @@
 package brotic.findmyfriends.Event;
 
+import android.util.Log;
 import android.view.View;
 
 import brotic.findmyfriends.Presenter.SecurityPresenter;
@@ -16,10 +17,10 @@ public class MainClickEvent implements View.OnClickListener {
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.button_connexion :
-                ActivityLauncher.create("ConnexionActivity", true, null);
+                ActivityLauncher.create("LoginActivity", false, null);
                 break;
             case R.id.button_inscription :
-                ActivityLauncher.create("InscriptionActivity", true, null);
+                ActivityLauncher.create("InscriptionActivity", false, null);
                 break;
             case R.id.suivant_inscription:
                 SecurityPresenter.register();

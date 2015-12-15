@@ -60,6 +60,8 @@ public class MainAfterLoginPresenter {
             if (rcv.getInt("response") == 1) {
                 JSONArray array = rcv.getJSONArray("friendList");
 
+                act.setContentView(R.layout.activity_main_login);
+
                 LayoutInflater inflater = (LayoutInflater) MyActivity.getAct().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
                 LinearLayout parent = (LinearLayout) MyActivity.getAct().findViewById(R.id.layoutFriends);
                 parent.removeAllViews();

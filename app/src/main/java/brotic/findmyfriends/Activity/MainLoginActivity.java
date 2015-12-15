@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.ImageView;
 
 import brotic.findmyfriends.Event.MainClickEvent;
+import brotic.findmyfriends.Presenter.MainAfterLoginPresenter;
 import brotic.findmyfriends.R;
 import brotic.findmyfriends.Security.MyActivity;
 
@@ -17,13 +18,13 @@ public class MainLoginActivity extends MyActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_connexion);
+        setContentView(R.layout.layout_vide);
     }
 
     @Override
     protected void onResume() {
         super.onResume();
 
-
+        MainAfterLoginPresenter.main();
     }
 }

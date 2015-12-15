@@ -112,6 +112,10 @@ public class BroticCommunication {
             out.close();
         }
 
+        int status = urlConnection.getResponseCode();
+
+        Log.d("=====MYLOGGER=======", String.valueOf(status));
+
         this.in = new BufferedInputStream(this.urlConnection.getInputStream());
     }
 

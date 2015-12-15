@@ -8,6 +8,7 @@ import java.io.ObjectOutputStream;
 import brotic.findmyfriends.Activity.ConnexionActivity;
 import brotic.findmyfriends.Activity.InscriptionActivity;
 import brotic.findmyfriends.Activity.LauncherActivity;
+import brotic.findmyfriends.Activity.LoginActivity;
 import brotic.findmyfriends.Activity.MainActivity;
 import brotic.findmyfriends.Exception.SecurityContextException;
 import brotic.findmyfriends.Model.User;
@@ -27,7 +28,7 @@ public class EtatNonAuthentifie extends Etat {
 
     @Override
     public boolean isGranted(MyActivity a) throws SecurityContextException {
-        if (a instanceof LauncherActivity || a instanceof MainActivity || a instanceof ConnexionActivity || a instanceof InscriptionActivity)
+        if (a instanceof LauncherActivity || a instanceof MainActivity || a instanceof LoginActivity || a instanceof InscriptionActivity)
             return true;
         else
             throw new SecurityContextException("Accés non authorisé");

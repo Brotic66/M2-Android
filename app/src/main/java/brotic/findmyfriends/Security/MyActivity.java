@@ -16,7 +16,9 @@ import java.util.HashSet;
 import brotic.findmyfriends.Activity.ConnexionActivity;
 import brotic.findmyfriends.Activity.InscriptionActivity;
 import brotic.findmyfriends.Activity.LauncherActivity;
+import brotic.findmyfriends.Activity.LoginActivity;
 import brotic.findmyfriends.Activity.MainActivity;
+import brotic.findmyfriends.Activity.MainLoginActivity;
 
 public class MyActivity extends Activity {
 
@@ -50,12 +52,6 @@ public class MyActivity extends Activity {
             Intent intent = new Intent(MyActivity.getAct().getApplicationContext(), MainActivity.class);
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
             MyActivity.getAct().startActivity(intent);
-        }
-
-        if (this instanceof LauncherActivity || this instanceof MainActivity || this instanceof ConnexionActivity || this instanceof InscriptionActivity) {
-
-        } else {
-
         }
     }
 
