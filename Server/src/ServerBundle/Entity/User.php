@@ -42,6 +42,13 @@ class User
      */
     private $phoneNumber;
 
+    /**
+     * @var array
+     *
+     * @ORM\Column(name="tokens", type="array")
+     */
+    private $tokens;
+
 
     /**
      * Get id
@@ -123,6 +130,32 @@ class User
     public function getPhoneNumber()
     {
         return $this->phoneNumber;
+    }
+
+    /**
+     * @return array
+     */
+    public function getTokens()
+    {
+        return $this->tokens;
+    }
+
+    /**
+     * @param array $token
+     */
+    public function setTokens($token)
+    {
+        $this->tokens = $token;
+    }
+
+    public function addToken($token)
+    {
+        $this->tokens[] = $token;
+    }
+
+    public function removeToken($token)
+    {
+        unset($this->tokens[array_search($token, $this->tokens)]);
     }
 }
 

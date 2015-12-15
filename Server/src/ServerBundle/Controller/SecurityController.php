@@ -50,6 +50,8 @@ class SecurityController extends NTAngularController
      */
     public function loginAction($login, $password)
     {
+        $userService = $this->get('server.user_service');
+        $em = $this->getDoctrine()->getManager();
         $repository = $this->getDoctrine()->getRepository('ServerBundle:User');
         $user = $repository->findOneBy(array(
             'username' => $login,
@@ -67,11 +69,16 @@ class SecurityController extends NTAngularController
                 'message' => 'Mauvais mot de passe'
             ));
 
+        $token = $userService->generateToken();
+        $user->addToken($token);
+        $em->flush();
+
         return $this->NTRender(array(
             'response' => 1,
             'userId' => $user->getId(),
             'username' => $user->getUsername(),
-            'userPhone' => $user->getPhoneNumber()
+            'userPhone' => $user->getPhoneNumber(),
+            'token' => $token
         ));
     }
 }

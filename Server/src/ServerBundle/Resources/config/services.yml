@@ -5,3 +5,6 @@ services:
 
     server.format_service:
         class: ServerBundle\Services\Format
+
+    server.user_service:
+        class: ServerBundle\Services\UserService
