@@ -35,7 +35,7 @@ class UserController extends NTAngularController
         $path = $user->getProfilPicture();
 
         if ($path = null || $path == '')
-            $path = "Files/BasePhotoProfil.png";
+            $path = "Files/Profil/BasePhotoProfil.png";
 
         if (($file = fopen("". $path, "r")) != null)
         {
