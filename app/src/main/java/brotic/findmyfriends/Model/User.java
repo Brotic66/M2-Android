@@ -7,21 +7,21 @@ import java.io.Serializable;
  * @date 04/11/2015
  * @version 1.0.0
  */
-public class Utilisateur implements Serializable {
+public class User implements Serializable {
 
     private int id;
     private String pseudo;
     private String num;
 
-    public Utilisateur() {
+    public User() {
     }
 
-    public Utilisateur(int id, String p) {
+    public User(int id, String p) {
         this.id = id;
         this.pseudo = p;
     }
 
-    public Utilisateur(int i, String p, String n) {
+    public User(int i, String p, String n) {
         this.id = i;
         this.pseudo = p;
         this.num = n;
