@@ -32,7 +32,7 @@ public class UserBuilder extends AbstractBuilder {
             try {
 
                 this.obj = new User(
-                        obj.getInt("userId"),
+                        obj.getInt("id"),
                         obj.getString("username")
                 );
             } catch (JSONException e) {

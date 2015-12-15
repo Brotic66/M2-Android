@@ -28,6 +28,8 @@ public class MainClickEvent implements View.OnClickListener {
             case R.id.suivant_connexion:
                 SecurityPresenter.login();
                 break;
+            case R.id.relFriend:
+                ActivityLauncher.create("FriendDetails", false, null);
         }
     }
 }

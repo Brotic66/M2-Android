@@ -17,4 +17,6 @@
     <string name="action_settings">Settings</string>
     <string name="next">Suivant</string>
     <string name="title_activity_main_login">MainLogin</string>
+    <string name="title_activity_maps">Map</string>
+    <string name="title_activity_friend_details">FriendDetails</string>
 </resources>

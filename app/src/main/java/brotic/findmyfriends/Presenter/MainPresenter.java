@@ -21,6 +21,8 @@ public class MainPresenter {
     public static void launcher() {
         String FILENAME = "utilisateur";
 
+        //MyActivity.getAct().deleteFile(FILENAME);
+
         try {
             FileInputStream file = MyActivity.getAct().getBaseContext().openFileInput(FILENAME);
             ObjectInputStream is = new ObjectInputStream(file);

@@ -16,6 +16,7 @@ import org.json.JSONObject;
 
 import brotic.findmyfriends.Activity.MainLoginActivity;
 import brotic.findmyfriends.AsyncTask.FriendsListTask;
+import brotic.findmyfriends.Event.MainClickEvent;
 import brotic.findmyfriends.Exception.SecurityContextException;
 import brotic.findmyfriends.Model.User;
 import brotic.findmyfriends.R;
@@ -56,9 +57,9 @@ public class MainAfterLoginPresenter {
 
         try {
             final MainLoginActivity act = (MainLoginActivity) MyActivity.getAct();
-            UserBuilder builder = (UserBuilder) BuilderFactory.create("User");
+            UserBuilder builder = (UserBuilder) BuilderFactory.create("user");
             if (rcv.getInt("response") == 1) {
-                JSONArray array = rcv.getJSONArray("friendList");
+                JSONArray array = rcv.getJSONArray("friendsList");
 
                 act.setContentView(R.layout.activity_main_login);
 
@@ -71,15 +72,17 @@ public class MainAfterLoginPresenter {
                     User friend = builder.getObj();
 
                     RelativeLayout custom = (RelativeLayout) inflater.inflate(R.layout.element_friend, null);
+                    custom.findViewById(R.id.relFriend).setOnClickListener(new MainClickEvent());
                     TextView username = (TextView) custom.findViewById(R.id.pseudo);
 
                     Picasso.with(act)
-                            .load("http://149.202.51.217/getProfilPicture/" + friend.getId())
+                            .load("http://149.202.51.217/Server/web/app_dev.php/getProfilPicture/" + friend.getId() + "/")
                             .resize(40, 40)
                             .transform(new CircleTransform())
                             .into((ImageView) custom.findViewById(R.id.picture));
 
                     username.setText(friend.getPseudo());
+
 
                     parent.addView(custom);
                 }

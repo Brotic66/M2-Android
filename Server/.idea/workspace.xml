@@ -2,10 +2,20 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e5e410dd-0aba-44ff-aad5-d735063d15b9" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../app/src/debug/res/values/google_maps_api.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../app/src/main/java/brotic/findmyfriends/Activity/FriendDetails.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../app/src/main/res/layout/content_friend_details.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../app/src/release/res/values/google_maps_api.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ServerBundle/Controller/UserController.php" afterPath="$PROJECT_DIR$/src/ServerBundle/Controller/UserController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../app/app.iml" afterPath="$PROJECT_DIR$/../app/app.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../app/build.gradle" afterPath="$PROJECT_DIR$/../app/build.gradle" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../app/src/main/AndroidManifest.xml" afterPath="$PROJECT_DIR$/../app/src/main/AndroidManifest.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../app/src/main/java/brotic/findmyfriends/Event/MainClickEvent.java" afterPath="$PROJECT_DIR$/../app/src/main/java/brotic/findmyfriends/Event/MainClickEvent.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../app/src/main/java/brotic/findmyfriends/Presenter/MainAfterLoginPresenter.java" afterPath="$PROJECT_DIR$/../app/src/main/java/brotic/findmyfriends/Presenter/MainAfterLoginPresenter.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../app/src/main/java/brotic/findmyfriends/Presenter/MainPresenter.java" afterPath="$PROJECT_DIR$/../app/src/main/java/brotic/findmyfriends/Presenter/MainPresenter.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../app/src/main/java/brotic/findmyfriends/Service/ActivityLauncher.java" afterPath="$PROJECT_DIR$/../app/src/main/java/brotic/findmyfriends/Service/ActivityLauncher.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../app/src/main/java/brotic/findmyfriends/Service/Builders/UserBuilder.java" afterPath="$PROJECT_DIR$/../app/src/main/java/brotic/findmyfriends/Service/Builders/UserBuilder.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../app/src/main/res/values/strings.xml" afterPath="$PROJECT_DIR$/../app/src/main/res/values/strings.xml" />
     </list>
     <ignored path="server.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -40,8 +50,8 @@
       <file leaf-file-name="UserController.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/ServerBundle/Controller/UserController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.40625">
-              <caret line="37" column="34" selection-start-line="37" selection-start-column="34" selection-end-line="37" selection-end-column="34" />
+            <state vertical-scroll-proportion="1.0989584">
+              <caret line="42" column="36" selection-start-line="42" selection-start-column="36" selection-end-line="42" selection-end-column="36" />
               <folding />
             </state>
           </provider>
@@ -657,8 +667,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/ServerBundle/Controller/UserController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.40625">
-          <caret line="37" column="34" selection-start-line="37" selection-start-column="34" selection-end-line="37" selection-end-column="34" />
+        <state vertical-scroll-proportion="1.0989584">
+          <caret line="42" column="36" selection-start-line="42" selection-start-column="36" selection-end-line="42" selection-end-column="36" />
           <folding />
         </state>
       </provider>

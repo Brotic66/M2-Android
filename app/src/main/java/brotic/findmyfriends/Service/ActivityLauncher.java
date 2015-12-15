@@ -5,6 +5,7 @@ import android.util.Log;
 
 import java.util.ArrayList;
 
+import brotic.findmyfriends.Activity.FriendDetails;
 import brotic.findmyfriends.Activity.InscriptionActivity;
 import brotic.findmyfriends.Activity.LoginActivity;
 import brotic.findmyfriends.Activity.MainActivity;
@@ -34,6 +35,10 @@ public class ActivityLauncher {
                 break;
             case "MainLogin":
                 it.setClass(MyActivity.getAct().getBaseContext(), MainLoginActivity.class);
+                break;
+            case "FriendDetails":
+                it.setClass(MyActivity.getAct().getBaseContext(), FriendDetails.class);
+                break;
         }
 
         if (finish)
