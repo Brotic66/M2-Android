@@ -49,10 +49,10 @@
         <entry file="file://$PROJECT_DIR$/src/ServerBundle/Controller/DefaultController.php">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.21875">
-              <caret line="10" column="32" selection-start-line="10" selection-start-column="32" selection-end-line="10" selection-end-column="32" />
+              <caret line="10" column="41" selection-start-line="10" selection-start-column="41" selection-end-line="10" selection-end-column="41" />
               <folding>
                 <element signature="e#43#103#0#PHP" expanded="true" />
-                <element signature="e#495#514#1#PHP" expanded="true" />
+                <element signature="e#496#515#1#PHP" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -478,7 +478,7 @@
           <caret line="38" column="11" selection-start-line="14" selection-start-column="8" selection-end-line="38" selection-end-column="11" />
           <folding>
             <element signature="e#43#103#0#PHP" expanded="true" />
-            <element signature="e#495#514#1#PHP" expanded="true" />
+            <element signature="e#496#515#1#PHP" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -507,7 +507,7 @@
           <caret line="10" column="48" selection-start-line="10" selection-start-column="48" selection-end-line="10" selection-end-column="48" />
           <folding>
             <element signature="e#43#103#0#PHP" expanded="true" />
-            <element signature="e#495#514#1#PHP" expanded="true" />
+            <element signature="e#496#515#1#PHP" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -653,10 +653,10 @@
     <entry file="file://$PROJECT_DIR$/src/ServerBundle/Controller/DefaultController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.21875">
-          <caret line="10" column="32" selection-start-line="10" selection-start-column="32" selection-end-line="10" selection-end-column="32" />
+          <caret line="10" column="41" selection-start-line="10" selection-start-column="41" selection-end-line="10" selection-end-column="41" />
           <folding>
             <element signature="e#43#103#0#PHP" expanded="true" />
-            <element signature="e#495#514#1#PHP" expanded="true" />
+            <element signature="e#496#515#1#PHP" expanded="true" />
           </folding>
         </state>
       </provider>

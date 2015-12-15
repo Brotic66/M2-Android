@@ -8,7 +8,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 class DefaultController extends NTAngularController
 {
     /**
-     * @Route("/friendsList/{id}/{token}")
+     * @Route("/friendsList/{id}/{token}/")
      */
     public function indexAction($id, $token)
     {
