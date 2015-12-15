@@ -10,13 +10,12 @@ class DefaultController extends NTAngularController
     /**
      * @Route("/friendsList/{id}/{login}/{token}")
      */
-    public function indexAction($id, $login, $token)
+    public function indexAction($id, $token)
     {
         $userService = $this->get('server.user_service');
         $em = $this->getDoctrine()->getManager();
         $repository = $this->getDoctrine()->getRepository('ServerBundle:User');
         $user = $repository->findOneBy(array(
-            'username' => $login,
             'id' => $id
         ));
 
