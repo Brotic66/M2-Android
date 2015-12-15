@@ -6,6 +6,7 @@ use Brotic66\NTAngularBundle\Controller\NTAngularController;
 use Doctrine\DBAL\Exception\UniqueConstraintViolationException;
 use ServerBundle\Entity\User;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Symfony\Component\Filesystem\Filesystem;
 
 class SecurityController extends NTAngularController
 {
@@ -20,6 +21,7 @@ class SecurityController extends NTAngularController
     {
         $em = $this->getDoctrine()->getManager();
         $formatService = $this->get('server.format_service');
+        $fs = new Filesystem();
         $user = new User();
         $user->setUsername($login);
         $user->setPassword(password_hash($password, PASSWORD_BCRYPT));
@@ -34,6 +36,8 @@ class SecurityController extends NTAngularController
                 'message' => 'Utilisateur existant'
             ));
     }
+
+        $fs->mkdir('Files/Profil/'.$user->getId(), 0777);
 
         return $this->NTRender(array(
             'response' => 1,

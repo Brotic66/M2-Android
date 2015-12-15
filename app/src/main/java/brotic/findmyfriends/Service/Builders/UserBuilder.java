@@ -15,13 +15,26 @@ public class UserBuilder extends AbstractBuilder {
     public void createFromJSON(JSONObject obj) {
         if (obj != null) {
             try {
-                User user = new User(
+
+                this.obj = new User(
                         obj.getInt("userId"),
                         obj.getString("username"),
                         obj.getString("userPhone")
                 );
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+        }
+    }
 
-                this.obj = user;
+    public void createSimpleFromJSON(JSONObject obj) {
+        if (obj != null) {
+            try {
+
+                this.obj = new User(
+                        obj.getInt("userId"),
+                        obj.getString("username")
+                );
             } catch (JSONException e) {
                 e.printStackTrace();
             }

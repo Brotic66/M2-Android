@@ -34,6 +34,7 @@ class DefaultController extends NTAngularController
                 ));
 
         return $this->NTRender(array(
+            'response' => 1,
             'friendsList' => $userService->formatFriends($user)
         ));
     }
