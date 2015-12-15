@@ -10,7 +10,8 @@ import brotic.findmyfriends.Activity.InscriptionActivity;
 import brotic.findmyfriends.Activity.LauncherActivity;
 import brotic.findmyfriends.Activity.MainActivity;
 import brotic.findmyfriends.Exception.SecurityContextException;
-import brotic.findmyfriends.Model.Utilisateur;
+import brotic.findmyfriends.Model.User;
+import brotic.findmyfriends.Service.ActivityLauncher;
 
 /**
  * @author Brice VICO
@@ -33,7 +34,7 @@ public class EtatNonAuthentifie extends Etat {
     }
 
     @Override
-    public void login(Utilisateur u, String s) throws SecurityContextException {
+    public void login(User u, String s) throws SecurityContextException {
         Etat e = new EtatAuthentifie(this.security, u, s);
         this.security.changeEtat(e);
 
@@ -48,6 +49,8 @@ public class EtatNonAuthentifie extends Etat {
 
             os.close();
             file.close();
+
+            ActivityLauncher.create("MainLogin", true, null);
 
         } catch (IOException e1) {
             e1.printStackTrace();

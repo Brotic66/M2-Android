@@ -3,7 +3,7 @@ package brotic.findmyfriends.Security;
 import java.io.Serializable;
 
 import brotic.findmyfriends.Exception.SecurityContextException;
-import brotic.findmyfriends.Model.Utilisateur;
+import brotic.findmyfriends.Model.User;
 
 /**
  * @author Brice VICO
@@ -18,7 +18,7 @@ public abstract class Etat implements Serializable {
         throw new SecurityContextException("Accés refusé");
     }
 
-    public Utilisateur getUtilisateur() throws SecurityContextException {
+    public User getUtilisateur() throws SecurityContextException {
         throw new SecurityContextException("Vous n'êtes pas authentifié");
     }
 
@@ -27,7 +27,7 @@ public abstract class Etat implements Serializable {
         throw new SecurityContextException("Vous n'êtes pas authentifié");
     }
 
-    public void login(Utilisateur u, String s) throws SecurityContextException {
+    public void login(User u, String s) throws SecurityContextException {
         throw new SecurityContextException("Authentification déjà effectuée");
     }
 

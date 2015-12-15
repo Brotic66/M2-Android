@@ -4,7 +4,7 @@ import android.content.Intent;
 import brotic.findmyfriends.Activity.LauncherActivity;
 import brotic.findmyfriends.Activity.MainActivity;
 import brotic.findmyfriends.Exception.SecurityContextException;
-import brotic.findmyfriends.Model.Utilisateur;
+import brotic.findmyfriends.Model.User;
 
 /**
  * @author Brice VICO
@@ -13,10 +13,10 @@ import brotic.findmyfriends.Model.Utilisateur;
  */
 public class EtatAuthentifie extends Etat {
 
-    private Utilisateur util;
+    private User util;
     private String sid;
 
-    public EtatAuthentifie(SecurityContext se, Utilisateur u, String s) {
+    public EtatAuthentifie(SecurityContext se, User u, String s) {
         this.security = se;
         this.util = u;
         this.sid = s;
@@ -41,7 +41,7 @@ public class EtatAuthentifie extends Etat {
     }
 
     @Override
-    public Utilisateur getUtilisateur() {
+    public User getUtilisateur() {
         return this.util;
     }
 

@@ -9,11 +9,18 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import brotic.findmyfriends.Activity.InscriptionActivity;
+import brotic.findmyfriends.Activity.LoginActivity;
+import brotic.findmyfriends.AsyncTask.LoginTask;
 import brotic.findmyfriends.AsyncTask.RegisterTask;
+import brotic.findmyfriends.Exception.SecurityContextException;
+import brotic.findmyfriends.Form.LoginForm;
 import brotic.findmyfriends.Form.RegisterForm;
+import brotic.findmyfriends.Model.User;
 import brotic.findmyfriends.R;
 import brotic.findmyfriends.Security.MyActivity;
 import brotic.findmyfriends.Service.BroticCommunication;
+import brotic.findmyfriends.Service.BuilderFactory;
+import brotic.findmyfriends.Service.Builders.UserBuilder;
 
 /**
  * @author Brice VICO
@@ -60,10 +67,39 @@ public class SecurityPresenter {
     }
 
     public static void login() {
+        if (!(MyActivity.getAct() instanceof LoginActivity))
+            return;
+
+        final LoginActivity act = (LoginActivity) MyActivity.getAct();
+        final EditText username = (EditText) act.findViewById(R.id.connexion_pseudo);
+        final EditText mdp = (EditText) act.findViewById(R.id.connexion_mdp);
+        final LoginForm form = new LoginForm(username, mdp);
+
+        if (form.isValid()) {
+            BroticCommunication com = new BroticCommunication("login");
+            com.addParamGet("username", username.getText().toString());
+            com.addParamGet("mdp", mdp.getText().toString());
+
+            LoginTask task = new LoginTask();
+            act.addTask(task);
+            task.execute(com);
+        }
 
     }
 
-    public static void loginNext() {
+    public static void loginNext(JSONObject rcv) {
 
+        try {
+            if (rcv.getInt("response") == 1) {
+                UserBuilder builder = (UserBuilder) BuilderFactory.create("User");
+                builder.createFromJSON(rcv);
+
+                User user = builder.getObj();
+
+                MyActivity.getSecurity().login(user, rcv.getString("token"));
+            }
+        } catch (JSONException | SecurityContextException e) {
+            e.printStackTrace();
+        }
     }
 }

@@ -24,4 +24,21 @@ class UserService
         else
             return false;
     }
+
+    public function formatFriends(User $user)
+    {
+        $toRtn = array();
+        $friendsList = $user->getFriends();
+
+        $i = 0;
+
+        foreach ($friendsList as $friend) {
+            $toRtn[$i]["username"] = $friend->getUsername();
+            $toRtn[$i]["id"] = $friend->getId();
+
+            $i++;
+        }
+
+        return $toRtn;
+    }
 }

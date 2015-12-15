@@ -11,6 +11,7 @@
     <string name="pseudoFull">Le pseudo doit être renseigné</string>
     <string name="mdpFull">Le mot de passe doit être renseigné</string>
     <string name="phoneFull">Le numéro de téléphone doit être renseigné</string>
-    <string name="registerOk">Registration done</string>
-    <string name="registerError">Error on register</string>
+    <string name="registerOk">Inscription effectuée</string>
+    <string name="registerError">Problème lors de l\'inscription</string>
+    <string name="next">Suivant</string>
 </resources>

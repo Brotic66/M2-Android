@@ -30,6 +30,8 @@ public class ActivityLauncher {
             case "InscriptionActivity":
                 it.setClass(MyActivity.getAct().getBaseContext(), InscriptionActivity.class);
                 break;
+            case "MainLogin":
+
         }
 
         if (finish)

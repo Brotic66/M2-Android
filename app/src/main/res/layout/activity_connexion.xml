@@ -67,7 +67,7 @@
             android:layout_alignParentBottom="true"
             android:layout_marginBottom="20dp"
             android:layout_marginRight="20dp"
-            />
+            android:contentDescription="@string/next" />
 
     </RelativeLayout>
 

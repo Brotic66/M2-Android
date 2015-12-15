@@ -23,6 +23,10 @@ public class MainClickEvent implements View.OnClickListener {
                 break;
             case R.id.suivant_inscription:
                 SecurityPresenter.register();
+                break;
+            case R.id.suivant_connexion:
+                SecurityPresenter.login();
+                break;
         }
     }
 }

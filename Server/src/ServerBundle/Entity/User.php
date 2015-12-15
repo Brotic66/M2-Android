@@ -2,6 +2,7 @@
 
 namespace ServerBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -56,6 +57,22 @@ class User
      */
     private $profilPicture;
 
+    /**
+     * @var ArrayCollection
+     *
+     * @ORM\ManyToMany(targetEntity="User")
+     * @ORM\JoinTable(name="users_friends",
+     *      joinColumns={@ORM\JoinColumn(name="friend1_id", referencedColumnName="id")},
+     *      inverseJoinColumns={@ORM\JoinColumn(name="friend2_id", referencedColumnName="id")}
+     *      )
+     */
+    private $friends;
+
+
+    public function __construct()
+    {
+        $this->friends = new ArrayCollection();
+    }
 
     /**
      * Get id
@@ -179,6 +196,34 @@ class User
     public function setProfilPicture($profilPicture)
     {
         $this->profilPicture = $profilPicture;
+    }
+
+    /**
+     * @return ArrayCollection
+     */
+    public function getFriends()
+    {
+        return $this->friends;
+    }
+
+    /**
+     * @param ArrayCollection $friends
+     */
+    public function setFriends($friends)
+    {
+        $this->friends = $friends;
+    }
+
+    public function addFriend(User $friend)
+    {
+        if (!$this->friends->contains($friend))
+            $this->friends->add($friend);
+    }
+
+    public function removeFriend(User $friend)
+    {
+        if ($this->friends->contains($friend))
+            $this->friends->removeElement($friend);
     }
 }
 
