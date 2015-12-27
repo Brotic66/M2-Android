@@ -17,7 +17,7 @@ class UserController extends NTAngularController
      * @internal param $password
      * @Route("/getProfilPicture/{id}/")
      */
-    public function registerAction($id)
+    public function getPictureAction($id)
     {
         $userService = $this->get('server.user_service');
         $em = $this->getDoctrine()->getManager();
@@ -51,9 +51,9 @@ class UserController extends NTAngularController
 
     /**
      * @param $id
-     * @Route("/position/{id}/{token}/{position}/")
+     * @Route("/position/{id}/{token}/{latitude}/{longitude}")
      */
-    public function positionAction($id, $token, $position)
+    public function positionAction($id, $token, $latitude, $longitude)
     {
         $userService = $this->get('server.user_service');
         $em = $this->getDoctrine()->getManager();
@@ -73,17 +73,58 @@ class UserController extends NTAngularController
             ));
 
         if (!$userService->tokenExist($user, $token))
-            if (!$user)
-                return $this->NTRender(array(
-                    'response' => 0,
-                    'message' => 'Erreur d\'authentification'
-                ));
+            return $this->NTRender(array(
+                'response' => 0,
+                'message' => 'Erreur d\'authentification'
+            ));
 
-        $user->setPosition($position);
+        $user->setLatitude($latitude);
+        $user->setLongitude($longitude);
         $em->flush();
 
         return $this->NTRender(array(
             'response' => 1
+        ));
+    }
+
+    /**
+     * @param $id
+     * @Route("/getPosition/{id}/{token}/{friendId}/")
+     */
+    public function getPositionAction($id, $token, $friendId)
+    {
+        $userService = $this->get('server.user_service');
+        $em = $this->getDoctrine()->getManager();
+        $repository = $this->getDoctrine()->getRepository('ServerBundle:User');
+        $user = $repository->findOneBy(array(
+            'id' => $id
+        ));
+        $friend = $repository->findOneBy(array(
+           'id' => $friendId
+        ));
+
+        if (!$user || !$friend)
+            return $this->NTRender(array(
+                'response' => 404,
+                'message' => 'Utilisateur inconnu'
+            ));
+
+        if (!$userService->tokenExist($user, $token))
+            return $this->NTRender(array(
+                'response' => 0,
+                'message' => 'Erreur d\'authentification'
+            ));
+
+        if (!$user->getFriends()->contains($friend))
+            return $this->NTRender(array(
+                'response' => 0,
+                'message' => 'Cette personne n\'esrt pas votre ami !'
+            ));
+
+        return $this->NTRender(array(
+            'response' => 1,
+            'latitude' => $friend->getLatitude(),
+            'longitude' => $friend->getLongitude()
         ));
     }
 }

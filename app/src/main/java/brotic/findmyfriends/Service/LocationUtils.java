@@ -12,4 +12,12 @@ public class LocationUtils {
                 + " "
                 + Location.convert(location.getLongitude(), Location.FORMAT_DEGREES);
     }
+
+    public String getLatitude(Location location) {
+        return Location.convert(location.getLatitude(), Location.FORMAT_DEGREES);
+    }
+
+    public String getLongitude(Location location) {
+        return Location.convert(location.getLongitude(), Location.FORMAT_DEGREES);
+    }
 }

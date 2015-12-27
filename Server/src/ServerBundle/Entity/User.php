@@ -71,9 +71,16 @@ class User
     /**
      * @var string
      *
-     * @ORM\Column(name="position", type="string", length=255, nullable=true)
+     * @ORM\Column(name="latitude", type="string", length=255, nullable=true)
      */
-    private $position;
+    private $latitude;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="longitude", type="string", length=255, nullable=true)
+     */
+    private $longitude;
 
 
     public function __construct()
@@ -236,17 +243,33 @@ class User
     /**
      * @return string
      */
-    public function getPosition()
+    public function getLatitude()
     {
-        return $this->position;
+        return $this->latitude;
     }
 
     /**
-     * @param string $position
+     * @param string $latitude
      */
-    public function setPosition($position)
+    public function setLatitude($latitude)
     {
-        $this->position = $position;
+        $this->latitude = $latitude;
+    }
+
+    /**
+     * @return string
+     */
+    public function getLongitude()
+    {
+        return $this->longitude;
+    }
+
+    /**
+     * @param string $longitude
+     */
+    public function setLongitude($longitude)
+    {
+        $this->longitude = $longitude;
     }
 }
 
