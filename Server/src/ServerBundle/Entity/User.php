@@ -68,6 +68,13 @@ class User
      */
     private $friends;
 
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="position", type="string", length=255, nullable=true)
+     */
+    private $position;
+
 
     public function __construct()
     {
@@ -224,6 +231,22 @@ class User
     {
         if ($this->friends->contains($friend))
             $this->friends->removeElement($friend);
+    }
+
+    /**
+     * @return string
+     */
+    public function getPosition()
+    {
+        return $this->position;
+    }
+
+    /**
+     * @param string $position
+     */
+    public function setPosition($position)
+    {
+        $this->position = $position;
     }
 }
 

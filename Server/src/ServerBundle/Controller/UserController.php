@@ -48,4 +48,42 @@ class UserController extends NTAngularController
         return new Response($content,
             200, array('Content-Type' => 'image/jpeg', 'Content-Length' => $size, 'Content-Disposition' => 'attachment; filename="image.jpg"'));
     }
+
+    /**
+     * @param $id
+     * @Route("/position/{id}/{token}/{position}/")
+     */
+    public function positionAction($id, $token, $position)
+    {
+        $userService = $this->get('server.user_service');
+        $em = $this->getDoctrine()->getManager();
+        $repository = $this->getDoctrine()->getRepository('ServerBundle:User');
+
+        /**
+         * @var User
+         */
+        $user = $repository->findOneBy(array(
+            'id' => $id
+        ));
+
+        if (!$user)
+            return $this->NTRender(array(
+                'response' => 404,
+                'message' => 'Utilisateur inconnu'
+            ));
+
+        if (!$userService->tokenExist($user, $token))
+            if (!$user)
+                return $this->NTRender(array(
+                    'response' => 0,
+                    'message' => 'Erreur d\'authentification'
+                ));
+
+        $user->setPosition($position);
+        $em->flush();
+
+        return $this->NTRender(array(
+            'response' => 1
+        ));
+    }
 }
