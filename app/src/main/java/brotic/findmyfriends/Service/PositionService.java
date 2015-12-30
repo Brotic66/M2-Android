@@ -8,10 +8,23 @@ import android.content.Context;
 import android.content.pm.PackageManager;
 import android.location.LocationListener;
 import android.location.LocationManager;
+import android.os.CountDownTimer;
 import android.os.IBinder;
 import android.support.annotation.Nullable;
 import android.support.v4.app.ActivityCompat;
 import android.util.Log;
+import android.widget.Toast;
+
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+
+import brotic.findmyfriends.Exception.SecurityContextException;
+import brotic.findmyfriends.Security.MyActivity;
+import brotic.findmyfriends.Security.SecurityContext;
 
 /**
  * An {@link IntentService} subclass for handling asynchronous task requests in
@@ -37,6 +50,22 @@ public class PositionService extends Service {
                 // for ActivityCompat#requestPermissions for more details.
                 return -1;
             }
+
+            try {
+                Log.d("==== ALERT", "coucou ma gueule");
+                DataSaveForLocation save = new DataSaveForLocation(MyActivity.getSecurity().getSid(), MyActivity.getSecurity().getUtilisateur().getId());
+
+                MyActivity.getAct().deleteFile("saveForLocation");
+
+                FileOutputStream file = MyActivity.getAct().getBaseContext().openFileOutput("saveForLocation", Context.MODE_PRIVATE);
+                ObjectOutputStream os = new ObjectOutputStream(file);
+                os.writeObject(save);
+                os.close();
+                file.close();
+            } catch (SecurityContextException | IOException e) {
+                e.printStackTrace();
+            }
+
             locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 10000, 0, listener);
 
             return START_STICKY;

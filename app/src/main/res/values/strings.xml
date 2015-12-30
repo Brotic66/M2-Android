@@ -19,4 +19,6 @@
     <string name="title_activity_main_login">MainLogin</string>
     <string name="title_activity_maps">Map</string>
     <string name="title_activity_friend_details">FriendDetails</string>
+    <string name="wait">Wait</string>
+    <string name="pleaseWait">Please wait</string>
 </resources>

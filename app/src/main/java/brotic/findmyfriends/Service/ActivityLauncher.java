@@ -37,6 +37,8 @@ public class ActivityLauncher {
                 it.setClass(MyActivity.getAct().getBaseContext(), MainLoginActivity.class);
                 break;
             case "FriendDetails":
+                if (args.size() > 0)
+                    it.putExtra("friendId", (int)args.get(0));
                 it.setClass(MyActivity.getAct().getBaseContext(), FriendDetails.class);
                 break;
         }

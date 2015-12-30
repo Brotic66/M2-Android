@@ -36,6 +36,7 @@ public class BroticCommunication {
 
     private static String URL = "http://149.202.51.217/Server/web/app_dev.php/";
     private LinkedHashMap<String, String> paramsGet;
+    private LinkedHashMap<String, Object> args;
     private byte paramPost[];
     private String controleur;
     private HttpURLConnection urlConnection;
@@ -47,6 +48,7 @@ public class BroticCommunication {
         this.paramPost = null;
         this.urlConnection = null;
         this.in = null;
+        this.args = new LinkedHashMap<>();
     }
 
     public void addParamGet(String nom, String valeur) {
@@ -149,5 +151,17 @@ public class BroticCommunication {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    public LinkedHashMap<String, Object> getArgs() {
+        return args;
+    }
+
+    public void setArgs(LinkedHashMap<String, Object> args) {
+        this.args = args;
+    }
+
+    public void addArg(String name, Object obj) {
+        this.args.put(name, obj);
     }
 }

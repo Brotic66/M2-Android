@@ -14,4 +14,6 @@
     <string name="registerOk">Inscription effectuée</string>
     <string name="registerError">Problème lors de l\'inscription</string>
     <string name="next">Suivant</string>
+    <string name="wait">Wait</string>
+    <string name="pleaseWait">Please wait</string>
 </resources>

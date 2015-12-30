@@ -72,7 +72,7 @@ public class MainAfterLoginPresenter {
                     User friend = builder.getObj();
 
                     RelativeLayout custom = (RelativeLayout) inflater.inflate(R.layout.element_friend, null);
-                    custom.findViewById(R.id.relFriend).setOnClickListener(new MainClickEvent());
+                    custom.findViewById(R.id.relFriend).setOnClickListener(new MainClickEvent(friend.getId()));
                     TextView username = (TextView) custom.findViewById(R.id.pseudo);
 
                     Picasso.with(act)

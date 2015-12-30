@@ -4,10 +4,16 @@ import android.location.Location;
 import android.location.LocationListener;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.Toast;
 
 import org.xml.sax.SAXException;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.OptionalDataException;
+import java.io.StreamCorruptedException;
 
 import javax.xml.parsers.ParserConfigurationException;
 
@@ -21,46 +27,33 @@ import brotic.findmyfriends.Security.MyActivity;
  */
 public class MyLocationListener implements LocationListener {
 
-    private static User user = null;
-    private static String token = null;
-
     @Override
     public void onLocationChanged(Location location) {
 
         if (location != null) {
             LocationUtils utils = new LocationUtils();
 
-            if (token == null && user == null) {
-                try {
+            try {
+                FileInputStream file = MyActivity.getAct().getBaseContext().openFileInput("saveForLocation");
+                ObjectInputStream is = new ObjectInputStream(file);
+                DataSaveForLocation s = (DataSaveForLocation) is.readObject();
+                file.close();
 
-                    /**
-                     * ==========
-                     * Ici penser à effectuer un enregistrement et lecture dans SQLite !!!!
-                     * ==========
-                     */
+                BroticCommunication com = new BroticCommunication("position");
+                SendPositionTask task = new SendPositionTask();
 
-                    Log.d("==== ALERT", "coucou ma gueule");
-                    token = MyActivity.getSecurity().getSid();
-                    user = MyActivity.getSecurity().getUtilisateur();
-                } catch (SecurityContextException e) {
-                    e.printStackTrace();
-                    return;
+                if (s != null) {
+                    com.addParamGet("id", String.valueOf(s.getId()));
+                    com.addParamGet("token", s.getToken());
+                    com.addParamGet("latitude", utils.getLatitude(location));
+                    com.addParamGet("longitude", utils.getLongitude(location));
+
+                    task.execute(com);
+
+                    Log.d("==== ALERT", com.getParamsGet().get("position"));
                 }
-
-            }
-
-            BroticCommunication com = new BroticCommunication("position");
-            SendPositionTask task = new SendPositionTask();
-
-            if (user != null) {
-                com.addParamGet("id", String.valueOf(user.getId()));
-                com.addParamGet("token", token);
-                com.addParamGet("latitude", utils.getLatitude(location));
-                com.addParamGet("longitude", utils.getLongitude(location));
-
-                task.execute(com);
-
-                Log.d("==== ALERT", com.getParamsGet().get("position"));
+            } catch (ClassNotFoundException | IOException e) {
+                e.printStackTrace();
             }
         }
     }
