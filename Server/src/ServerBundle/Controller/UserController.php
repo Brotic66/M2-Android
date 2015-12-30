@@ -51,7 +51,7 @@ class UserController extends NTAngularController
 
     /**
      * @param $id
-     * @Route("/position/{id}/{token}/{latitude}/{longitude}")
+     * @Route("/position/{id}/{token}/{latitude}/{longitude}/")
      */
     public function positionAction($id, $token, $latitude, $longitude)
     {
@@ -115,7 +115,7 @@ class UserController extends NTAngularController
                 'message' => 'Erreur d\'authentification'
             ));
 
-        if (!$user->getFriends()->contains($friend))
+        if (!$user->getFriends()->contains($friend) && !$user->getFriendsWithMe()->contains($friend))
             return $this->NTRender(array(
                 'response' => 0,
                 'message' => 'Cette personne n\'esrt pas votre ami !'

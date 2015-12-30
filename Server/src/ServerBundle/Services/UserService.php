@@ -28,7 +28,7 @@ class UserService
     public function formatFriends(User $user)
     {
         $toRtn = array();
-        $friendsList = $user->getFriends();
+        $friendsList = array_merge($user->getFriends()->toArray(), $user->getFriendsWithMe()->toArray());
 
         $i = 0;
 

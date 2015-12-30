@@ -58,9 +58,14 @@ class User
     private $profilPicture;
 
     /**
+     * @ORM\ManyToMany(targetEntity="User", mappedBy="friends")
+     */
+    private $friendsWithMe;
+
+    /**
      * @var ArrayCollection
      *
-     * @ORM\ManyToMany(targetEntity="User")
+     * @ORM\ManyToMany(targetEntity="User", inversedBy="friendsWithMe")
      * @ORM\JoinTable(name="users_friends",
      *      joinColumns={@ORM\JoinColumn(name="friend1_id", referencedColumnName="id")},
      *      inverseJoinColumns={@ORM\JoinColumn(name="friend2_id", referencedColumnName="id")}
@@ -86,6 +91,7 @@ class User
     public function __construct()
     {
         $this->friends = new ArrayCollection();
+        $this->friendsWithMe = new ArrayCollection();
     }
 
     /**
@@ -270,6 +276,27 @@ class User
     public function setLongitude($longitude)
     {
         $this->longitude = $longitude;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getFriendsWithMe()
+    {
+        return $this->friendsWithMe;
+    }
+
+    /**
+     * @param mixed $friendsWithMe
+     */
+    public function setFriendsWithMe($friendsWithMe)
+    {
+        $this->friendsWithMe = $friendsWithMe;
+    }
+
+    public function addFriendWithMe(User $friend)
+    {
+        $this->friendsWithMe[] = $friend;
     }
 }
 
