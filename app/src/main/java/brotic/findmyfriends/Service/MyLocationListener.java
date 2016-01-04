@@ -30,17 +30,19 @@ public class MyLocationListener implements LocationListener {
     @Override
     public void onLocationChanged(Location location) {
 
-        if (location != null) {
             LocationUtils utils = new LocationUtils();
+        Log.d("==== ALERT fuck", "fuck !");
 
             try {
-                FileInputStream file = MyActivity.getAct().getBaseContext().openFileInput("saveForLocation");
+                FileInputStream file = MyActivity.getAct().openFileInput("saveForLocation");
                 ObjectInputStream is = new ObjectInputStream(file);
                 DataSaveForLocation s = (DataSaveForLocation) is.readObject();
                 file.close();
 
                 BroticCommunication com = new BroticCommunication("position");
                 SendPositionTask task = new SendPositionTask();
+
+                Log.d("==== ALERT", s.toString());
 
                 if (s != null) {
                     com.addParamGet("id", String.valueOf(s.getId()));
@@ -50,13 +52,12 @@ public class MyLocationListener implements LocationListener {
 
                     task.execute(com);
 
-                    Log.d("==== ALERT", com.getParamsGet().get("position"));
+                    Log.d("==== ALERT", com.getParamsGet().get("latitude"));
                 }
             } catch (ClassNotFoundException | IOException e) {
                 e.printStackTrace();
             }
         }
-    }
 
     @Override
     public void onStatusChanged(String provider, int status, Bundle extras) {

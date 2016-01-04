@@ -21,4 +21,5 @@
     <string name="title_activity_friend_details">FriendDetails</string>
     <string name="wait">Wait</string>
     <string name="pleaseWait">Please wait</string>
+    <string name="locationSend">Location send</string>
 </resources>

@@ -65,8 +65,9 @@ public class PositionService extends Service {
             } catch (SecurityContextException | IOException e) {
                 e.printStackTrace();
             }
-
-            locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 10000, 0, listener);
+            Log.d("==== ALERT", "coucou ma gueule");
+            locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 1000, 0, listener);
+            locationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, 1000, 0, listener);
 
             return START_STICKY;
         }
