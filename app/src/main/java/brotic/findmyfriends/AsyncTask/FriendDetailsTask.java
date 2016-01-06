@@ -78,7 +78,9 @@ public class FriendDetailsTask extends BroticAsyncTask {
     protected void onPostExecute(JSONObject rcv) {
         LatLng marker = null;
         try {
-            marker = new LatLng(rcv.getDouble("latitude"), rcv.getDouble("longitude"));
+            marker = new LatLng(
+                    Double.parseDouble(rcv.getString("latitude").replace(',', '.')),
+                    Double.parseDouble(rcv.getString("longitude").replace(',', '.')));
 
             this.map.addMarker(new MarkerOptions()
                     .position(marker)
