@@ -124,7 +124,8 @@ class UserController extends NTAngularController
         return $this->NTRender(array(
             'response' => 1,
             'latitude' => $friend->getLatitude(),
-            'longitude' => $friend->getLongitude()
+            'longitude' => $friend->getLongitude(),
+            'pseudo' => $friend->getPseudo()
         ));
     }
 }
