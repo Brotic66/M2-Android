@@ -125,7 +125,7 @@ class UserController extends NTAngularController
             'response' => 1,
             'latitude' => $friend->getLatitude(),
             'longitude' => $friend->getLongitude(),
-            'pseudo' => $friend->getPseudo()
+            'pseudo' => $friend->getUsername()
         ));
     }
 }
