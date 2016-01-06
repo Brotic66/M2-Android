@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v7.app.AppCompatActivity;
+import android.widget.ImageView;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -14,12 +15,15 @@ import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
+import brotic.findmyfriends.AsyncTask.FriendDetailsTask;
+import brotic.findmyfriends.AsyncTask.FriendsListTask;
 import brotic.findmyfriends.Exception.SecurityContextException;
+import brotic.findmyfriends.Presenter.UtilisateurPresenter;
 import brotic.findmyfriends.R;
 import brotic.findmyfriends.Security.MyActivity;
 import brotic.findmyfriends.Service.BroticCommunication;
 
-public class FriendDetails extends FragmentActivity implements OnMapReadyCallback {
+public class FriendDetailsActivity extends FragmentActivity implements OnMapReadyCallback {
 
     private int friendId;
 
@@ -35,6 +39,8 @@ public class FriendDetails extends FragmentActivity implements OnMapReadyCallbac
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
 
+        //UtilisateurPresenter.getFriendDetails(friendId);
+
     }
 
     @Override
@@ -47,15 +53,24 @@ public class FriendDetails extends FragmentActivity implements OnMapReadyCallbac
                 com.addParamGet("token", MyActivity.getSecurity().getSid());
                 com.addParamGet("friendId", String.valueOf(this.friendId));
                 com.addArg("map", map);
+                com.addArg("profilPicture", this.findViewById(R.id.profilPicture));
+                com.addArg("pseudo", this.findViewById(R.id.pseudo));
+                com.addArg("friendId", this.friendId);
+
+                FriendDetailsTask task = new FriendDetailsTask();
+                task.execute(com);
+
+                MyActivity.getAct().addTask(task);
             } catch (SecurityContextException e) {
                 e.printStackTrace();
             }
         }
-
-        LatLng sydney = new LatLng(-34, 151);
-        map.addMarker(new MarkerOptions()
-                .position(sydney)
-                .title("Marker in Sydney"));
-        map.moveCamera(CameraUpdateFactory.newLatLng(sydney));
+        else {
+            LatLng sydney = new LatLng(-34, 151);
+            map.addMarker(new MarkerOptions()
+                    .position(sydney)
+                    .title("Marker in Sydney"));
+            map.moveCamera(CameraUpdateFactory.newLatLng(sydney));
+        }
     }
 }

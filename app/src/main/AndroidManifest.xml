@@ -73,7 +73,7 @@
             android:value="@string/google_maps_key" />
 
         <activity
-            android:name=".Activity.FriendDetails"
+            android:name=".Activity.FriendDetailsActivity"
             android:label="@string/title_activity_friend_details"
             android:theme="@style/AppTheme.NoActionBar" />
 

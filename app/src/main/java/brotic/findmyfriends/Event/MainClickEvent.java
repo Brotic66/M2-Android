@@ -31,7 +31,7 @@ public class MainClickEvent implements View.OnClickListener {
         if (this.friendId > 0) {
             ArrayList<Object> arr = new ArrayList<>();
             arr.add(this.friendId);
-            ActivityLauncher.create("FriendDetails", false, arr);
+            ActivityLauncher.create("FriendDetailsActivity", false, arr);
         } else {
             switch (v.getId()) {
                 case R.id.button_connexion :

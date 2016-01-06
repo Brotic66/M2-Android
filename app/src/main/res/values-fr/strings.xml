@@ -17,4 +17,5 @@
     <string name="wait">Attendez</string>
     <string name="pleaseWait">Veuillez patienter</string>
     <string name="locationSend">Position envoyé</string>
+    <string name="unknowPosition">Unknow position</string>
 </resources>
