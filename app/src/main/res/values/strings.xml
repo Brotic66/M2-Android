@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">FindMyFriends</string>
+    <string name="app_name">SearchMyFriends</string>
     <string name="title_activity_main">Main Activity</string>
     <string name="title_activity_connexion">Login Activity</string>
     <string name="title_activity_inscription">Register Activity</string>
@@ -23,4 +23,6 @@
     <string name="pleaseWait">Please wait</string>
     <string name="locationSend">Location send</string>
     <string name="unknowPosition">Unknow position</string>
+    <string name="param">Parameters</string>
+    <string name="title_activity_config">ConfigActivity</string>
 </resources>

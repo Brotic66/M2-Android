@@ -7,30 +7,27 @@ import android.content.pm.PackageManager;
 import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v4.app.ActivityCompat;
-import android.support.v7.app.AppCompatActivity;
+import android.support.v7.view.menu.MenuBuilder;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
-import android.view.View;
-import android.widget.ImageView;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.widget.Toast;
 
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.ObjectOutputStream;
-
-import brotic.findmyfriends.Event.MainClickEvent;
-import brotic.findmyfriends.Exception.SecurityContextException;
 import brotic.findmyfriends.Presenter.MainAfterLoginPresenter;
 import brotic.findmyfriends.R;
 import brotic.findmyfriends.Security.MyActivity;
-import brotic.findmyfriends.Service.DataSaveForLocation;
+import brotic.findmyfriends.Service.ActivityLauncher;
 import brotic.findmyfriends.Service.MyLocationListener;
 import brotic.findmyfriends.Service.PositionService;
 import brotic.findmyfriends.Service.ShakeEventManager;
 
+/**
+ * @author Brice VICO
+ * @version 1.0.0
+ * @date 05/01/2016
+ */
 public class MainLoginActivity extends MyActivity implements ShakeEventManager.ShakeListener {
 
     private boolean create = true;
@@ -40,8 +37,11 @@ public class MainLoginActivity extends MyActivity implements ShakeEventManager.S
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.layout_vide);
-
+        //setContentView(R.layout.layout_vide);
+        setContentView(R.layout.activity_main_login);
+        Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
+        myToolbar.setTitle("");
+        myToolbar.inflateMenu(R.menu.menu_login);
         MainAfterLoginPresenter.main();
 
        /* Intent intent = new Intent(this, PositionService.class);
@@ -102,6 +102,20 @@ public class MainLoginActivity extends MyActivity implements ShakeEventManager.S
 
             locationManager.removeUpdates(listener);
             isShaked = false;
+        }
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.settings:
+                ActivityLauncher.create("", false, null);
+                return true;
+            case R.id.contact:
+                return true;
+
+            default:
+                return super.onOptionsItemSelected(item);
         }
     }
 }

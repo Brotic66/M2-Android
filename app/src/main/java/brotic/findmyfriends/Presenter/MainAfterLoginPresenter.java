@@ -2,6 +2,7 @@ package brotic.findmyfriends.Presenter;
 
 import android.content.Context;
 import android.view.LayoutInflater;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
@@ -61,7 +62,11 @@ public class MainAfterLoginPresenter {
             if (rcv.getInt("response") == 1) {
                 JSONArray array = rcv.getJSONArray("friendsList");
 
-                act.setContentView(R.layout.activity_main_login);
+                //act.setContentView(R.layout.activity_main_login);
+                RelativeLayout loading = (RelativeLayout)act.findViewById(R.id.loading);
+                LinearLayout root = (LinearLayout)act.findViewById(R.id.root);
+
+                root.removeView(loading);
 
                 LayoutInflater inflater = (LayoutInflater) MyActivity.getAct().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
                 LinearLayout parent = (LinearLayout) MyActivity.getAct().findViewById(R.id.layoutFriends);

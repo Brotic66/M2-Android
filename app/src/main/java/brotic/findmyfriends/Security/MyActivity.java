@@ -10,6 +10,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 
 import java.util.HashSet;
 
@@ -20,7 +21,7 @@ import brotic.findmyfriends.Activity.LoginActivity;
 import brotic.findmyfriends.Activity.MainActivity;
 import brotic.findmyfriends.Activity.MainLoginActivity;
 
-public class MyActivity extends Activity {
+public class MyActivity extends AppCompatActivity {
 
     private static MyActivity act;
     protected static HashSet<AsyncTask> tasks;

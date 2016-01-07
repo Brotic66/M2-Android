@@ -33,11 +33,12 @@
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
+        android:theme="@style/AppTheme.NoActionBar">
         <activity
             android:name=".Activity.LauncherActivity"
             android:label="@string/app_name"
-            android:screenOrientation="portrait">
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -74,12 +75,11 @@
 
         <activity
             android:name=".Activity.FriendDetailsActivity"
-            android:label="@string/title_activity_friend_details"
-            android:theme="@style/AppTheme.NoActionBar" />
-
-        <service
-            android:name=".Service.PositionService"
-            android:exported="false"></service>
+            android:label="@string/title_activity_friend_details" />
+        <activity
+            android:name=".Activity.ConfigActivity"
+            android:label="@string/title_activity_config"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>
