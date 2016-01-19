@@ -2,12 +2,10 @@ package brotic.findmyfriends.Presenter;
 
 import android.content.Context;
 import android.view.LayoutInflater;
-import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.squareup.picasso.Picasso;
 
@@ -15,9 +13,10 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import brotic.findmyfriends.Activity.GeoActivity;
 import brotic.findmyfriends.Activity.MainLoginActivity;
 import brotic.findmyfriends.AsyncTask.FriendsListTask;
-import brotic.findmyfriends.Event.MainClickEvent;
+import brotic.findmyfriends.Event.MainClickListener;
 import brotic.findmyfriends.Exception.SecurityContextException;
 import brotic.findmyfriends.Model.User;
 import brotic.findmyfriends.R;
@@ -77,7 +76,7 @@ public class MainAfterLoginPresenter {
                     User friend = builder.getObj();
 
                     RelativeLayout custom = (RelativeLayout) inflater.inflate(R.layout.element_friend, null);
-                    custom.findViewById(R.id.relFriend).setOnClickListener(new MainClickEvent(friend.getId()));
+                    custom.findViewById(R.id.relFriend).setOnClickListener(new MainClickListener(friend.getId()));
                     TextView username = (TextView) custom.findViewById(R.id.pseudo);
 
                     Picasso.with(act)
@@ -93,6 +92,25 @@ public class MainAfterLoginPresenter {
                 }
             }
         } catch (JSONException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void geo() {
+        if (!(MyActivity.getAct() instanceof GeoActivity))
+            return;
+
+        try {
+            final MainLoginActivity act = (MainLoginActivity) MyActivity.getAct();
+            BroticCommunication com = new BroticCommunication("getUserInZone");
+            com.addParamGet("id", String.valueOf(MyActivity.getSecurity().getUtilisateur().getId()));
+            com.addParamGet("token", MyActivity.getSecurity().getSid());
+
+            FriendsListTask task = new FriendsListTask();
+            act.addTask(task);
+            task.execute(com);
+
+        } catch (SecurityContextException e) {
             e.printStackTrace();
         }
     }

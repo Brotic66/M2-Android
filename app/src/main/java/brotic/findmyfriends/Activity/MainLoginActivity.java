@@ -8,13 +8,11 @@ import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.Bundle;
 import android.support.v4.app.ActivityCompat;
-import android.support.v7.view.menu.MenuBuilder;
 import android.support.v7.widget.Toolbar;
-import android.view.Menu;
-import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.Toast;
 
+import brotic.findmyfriends.Event.MenuClickListener;
 import brotic.findmyfriends.Presenter.MainAfterLoginPresenter;
 import brotic.findmyfriends.R;
 import brotic.findmyfriends.Security.MyActivity;
@@ -42,6 +40,9 @@ public class MainLoginActivity extends MyActivity implements ShakeEventManager.S
         Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
         myToolbar.setTitle("");
         myToolbar.inflateMenu(R.menu.menu_login);
+        //myToolbar.setNavigationOnClickListener(new MenuClickListener());
+        myToolbar.setOnMenuItemClickListener(new MenuClickListener());
+
         MainAfterLoginPresenter.main();
 
        /* Intent intent = new Intent(this, PositionService.class);
@@ -109,7 +110,7 @@ public class MainLoginActivity extends MyActivity implements ShakeEventManager.S
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.settings:
-                ActivityLauncher.create("", false, null);
+                ActivityLauncher.create("ConfigActivity", false, null);
                 return true;
             case R.id.contact:
                 return true;

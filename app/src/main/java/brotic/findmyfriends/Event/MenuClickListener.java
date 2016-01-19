@@ -35,6 +35,9 @@ public class MenuClickListener implements Toolbar.OnMenuItemClickListener {
                 return true;
             case R.id.contact:
                 return true;
+            case R.id.geo:
+                ActivityLauncher.create("GeoActivity", false, null);
+                return true;
             default:
                 return true;
         }

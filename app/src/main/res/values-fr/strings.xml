@@ -19,4 +19,13 @@
     <string name="locationSend">Position envoyé</string>
     <string name="unknowPosition">Position inconnu</string>
     <string name="param">Parametres</string>
+    <string name="logoutImpossible">Logout impossible</string>
+    <string name="pictureChanged">Picture have just been modified</string>
+    <string name="pictureNotChanged">Erreur during modifing picture</string>
+    <string name="oldPass">Ancien mot de passe</string>
+    <string name="newPass">Nouveau mot de passe</string>
+    <string name="mdpNotChanged">Erreur : password not changed</string>
+    <string name="mdpChanged">Password changed successfull</string>
+    <string name="geo">Geolocalisation</string>
+
 </resources>

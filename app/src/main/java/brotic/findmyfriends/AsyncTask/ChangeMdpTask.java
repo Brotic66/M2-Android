@@ -2,8 +2,10 @@ package brotic.findmyfriends.AsyncTask;
 
 import android.app.ProgressDialog;
 import android.widget.Toast;
+
 import org.json.JSONException;
 import org.json.JSONObject;
+
 import brotic.findmyfriends.R;
 import brotic.findmyfriends.Security.MyActivity;
 
@@ -29,9 +31,9 @@ public class ChangeMdpTask extends BroticAsyncTask
 
         try {
             if (jsonObject.getInt("response") == 1)
-                Toast.makeText(MyActivity.getAct().getBaseContext(), MyActivity.getAct().getString(R.string.pictureChanged), Toast.LENGTH_SHORT).show();
+                Toast.makeText(MyActivity.getAct().getBaseContext(), MyActivity.getAct().getString(R.string.mdpChanged), Toast.LENGTH_SHORT).show();
             else
-                Toast.makeText(MyActivity.getAct().getBaseContext(), MyActivity.getAct().getString(R.string.pictureNotChanged), Toast.LENGTH_SHORT).show();
+                Toast.makeText(MyActivity.getAct().getBaseContext(), MyActivity.getAct().getString(R.string.mdpNotChanged), Toast.LENGTH_SHORT).show();
 
             MyActivity.getAct().onBackPressed();
 

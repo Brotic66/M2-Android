@@ -12,29 +12,29 @@ import brotic.findmyfriends.Security.MyActivity;
  */
 public class ChangeMdpForm implements IForm {
 
-    private EditText username;
-    private EditText mdp;
+    private EditText oldMdp;
+    private EditText newMdp;
 
-    public ChangeMdpForm(EditText username, EditText mdp) {
-        this.username = username;
-        this.mdp = mdp;
+    public ChangeMdpForm(EditText old, EditText mdp) {
+        this.oldMdp = old;
+        this.newMdp = mdp;
     }
 
     @Override
     public boolean isValid() {
         boolean toRtn = true;
 
-        if (this.username.getText().toString().isEmpty()) {
+        if (this.oldMdp.getText().toString().isEmpty()) {
             Toast.makeText(MyActivity.getAct().getBaseContext(), R.string.pseudoFull, Toast.LENGTH_SHORT)
                     .show();
-            this.username.setBackgroundColor(Color.parseColor("#EE0000"));
+            this.oldMdp.setBackgroundColor(Color.parseColor("#EE0000"));
             toRtn = false;
         }
 
-        if (this.mdp.getText().toString().isEmpty()) {
+        if (this.newMdp.getText().toString().isEmpty()) {
             Toast.makeText(MyActivity.getAct().getBaseContext(), R.string.mdpFull, Toast.LENGTH_SHORT)
                     .show();
-            this.mdp.setBackgroundColor(Color.parseColor("#EE0000"));
+            this.newMdp.setBackgroundColor(Color.parseColor("#EE0000"));
             toRtn = false;
         }
 

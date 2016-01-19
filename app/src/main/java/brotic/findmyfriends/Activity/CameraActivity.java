@@ -17,9 +17,9 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 
-import brotic.selfidefi_v1.CameraPreview;
-import brotic.selfidefi_v1.R;
-import brotic.selfidefi_v1.Security.MyActivity;
+import brotic.findmyfriends.CameraPreview;
+import brotic.findmyfriends.R;
+import brotic.findmyfriends.Security.MyActivity;
 
 /**
  *
@@ -34,6 +34,7 @@ public class CameraActivity extends Activity
     private CameraPreview mPreview;
     private Uri mImage;
     private int result;
+    private int cameraType;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -60,7 +61,10 @@ public class CameraActivity extends Activity
         Camera.Parameters p = mCamera.getParameters();
         p.set("jpeg-quality", 50);
         p.set("orientation", "portrait");
-        p.set("rotation", 90);
+        if (cameraId == Camera.CameraInfo.CAMERA_FACING_BACK)
+            p.set("rotation", 90);
+        else
+            p.set("rotation", 270);
         mCamera.setParameters(p);
 
         ImageView captureButton = (ImageView) findViewById(R.id.button_capture);
@@ -83,6 +87,7 @@ public class CameraActivity extends Activity
 
                                                              Intent returnIntent = new Intent();
                                                              returnIntent.putExtra("result", result);
+                                                             returnIntent.putExtra("cameraType", cameraType);
                                                              setResult(RESULT_OK, returnIntent);
                                                              finish();
                                                          } catch (FileNotFoundException e) {
@@ -117,17 +122,23 @@ public class CameraActivity extends Activity
                 if(cameraId == Camera.CameraInfo.CAMERA_FACING_BACK)
                 {
                     cameraId = Camera.CameraInfo.CAMERA_FACING_FRONT;
+                    cameraType = Camera.CameraInfo.CAMERA_FACING_FRONT;
                 }
                 else
                 {
                     cameraId = Camera.CameraInfo.CAMERA_FACING_BACK;
+                    cameraType = Camera.CameraInfo.CAMERA_FACING_BACK;
+
                 }
 
                 mCamera = Camera.open(cameraId);
                 Camera.Parameters p = mCamera.getParameters();
                 p.set("jpeg-quality", 50);
                 p.set("orientation", "portrait");
-                p.set("rotation", 90);
+                if (cameraId == Camera.CameraInfo.CAMERA_FACING_BACK)
+                    p.set("rotation", 90);
+                else
+                    p.set("rotation", 270);
                 mCamera.setParameters(p);
 
                 mPreview = new CameraPreview(MyActivity.getAct(), mCamera);

@@ -25,4 +25,13 @@
     <string name="unknowPosition">Unknow position</string>
     <string name="param">Parameters</string>
     <string name="title_activity_config">ConfigActivity</string>
+    <string name="logoutImpossible">Logout impossible</string>
+    <string name="title_activity_change_picture">ChangePictureActivity</string>
+    <string name="pictureChanged">Picture have just been modified</string>
+    <string name="pictureNotChanged">Erreur during modifing picture</string>
+    <string name="oldPass">Ancien mot de passe</string>
+    <string name="newPass">Nouveau mot de passe</string>
+    <string name="mdpNotChanged">Erreur : password not changed</string>
+    <string name="mdpChanged">Password changed successfull</string>
+    <string name="geo">Geolocalisation</string>
 </resources>

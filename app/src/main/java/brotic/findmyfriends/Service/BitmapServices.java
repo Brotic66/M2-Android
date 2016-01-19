@@ -8,6 +8,7 @@
 package brotic.findmyfriends.Service;
 
 import android.content.ContentResolver;
+import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Matrix;
@@ -18,10 +19,11 @@ import android.view.Display;
 import android.widget.Toast;
 
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 
-import brotic.selfidefi_v1.Security.MyActivity;
+import brotic.findmyfriends.Security.MyActivity;
 
 public class BitmapServices
 {
@@ -199,5 +201,37 @@ public class BitmapServices
         display.getMetrics(outMetrics);
 
         return (int)(outMetrics.heightPixels / this.scale);
+    }
+
+    public byte[] envoyerImgInFile(Bitmap bmp)
+    {
+        String filename = "tmpImg";
+        FileOutputStream outputStream;
+        FileInputStream inputStream;
+        byte rtnByte[] = null;
+
+        try
+        {
+            outputStream = MyActivity.getAct().openFileOutput(filename, Context.MODE_PRIVATE);
+
+            bmp.compress(Bitmap.CompressFormat.JPEG, 50, outputStream);
+
+            outputStream.close();
+
+            inputStream = MyActivity.getAct().openFileInput(filename);
+            rtnByte = new byte[inputStream.available()];
+
+            inputStream.read(rtnByte);
+
+            inputStream.close();
+
+            MyActivity.getAct().deleteFile(filename);
+        }
+        catch (IOException e)
+        {
+            e.printStackTrace();
+        }
+
+        return rtnByte;
     }
 }

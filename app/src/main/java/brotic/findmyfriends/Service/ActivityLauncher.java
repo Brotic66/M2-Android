@@ -4,7 +4,11 @@ import android.content.Intent;
 
 import java.util.ArrayList;
 
+import brotic.findmyfriends.Activity.ChangeMdpActivity;
+import brotic.findmyfriends.Activity.ChangePictureActivity;
+import brotic.findmyfriends.Activity.ConfigActivity;
 import brotic.findmyfriends.Activity.FriendDetailsActivity;
+import brotic.findmyfriends.Activity.GeoActivity;
 import brotic.findmyfriends.Activity.InscriptionActivity;
 import brotic.findmyfriends.Activity.LoginActivity;
 import brotic.findmyfriends.Activity.MainActivity;
@@ -40,6 +44,17 @@ public class ActivityLauncher {
                     it.putExtra("friendId", (int)args.get(0));
                 it.setClass(MyActivity.getAct().getBaseContext(), FriendDetailsActivity.class);
                 break;
+            case "ConfigActivity":
+                it.setClass(MyActivity.getAct().getBaseContext(), ConfigActivity.class);
+                break;
+            case "ChangePictureActivity":
+                it.setClass(MyActivity.getAct().getBaseContext(), ChangePictureActivity.class);
+                break;
+            case "ChangeMdpActivity":
+                it.setClass(MyActivity.getAct().getBaseContext(), ChangeMdpActivity.class);
+                break;
+            case "GeoActivity":
+                it.setClass(MyActivity.getAct().getBaseContext(), GeoActivity.class);
         }
 
         if (finish)

@@ -1,35 +1,71 @@
-<?xml version="1.0" encoding="utf-8"?>
-<android.support.design.widget.CoordinatorLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
     android:layout_height="match_parent"
-    android:fitsSystemWindows="true"
-    tools:context="brotic.findmyfriends.Activity.ChangePictureActivity">
+    android:background="#fff"
+    tools:context="brotic.selfidefi_v1.Activity.MainActivity">
 
-    <android.support.design.widget.AppBarLayout
-        android:layout_height="wrap_content"
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/my_toolbar"
         android:layout_width="match_parent"
-        android:theme="@style/AppTheme.NoActionBar.AppBarOverlay">
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimary"
+        android:theme="@style/AppTheme"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
 
-        <android.support.v7.widget.Toolbar
-            android:id="@+id/toolbar"
-            android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            android:background="?attr/colorPrimary"
-            app:popupTheme="@style/AppTheme.NoActionBar.PopupOverlay" />
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="300dp">
 
-    </android.support.design.widget.AppBarLayout>
+        <ImageView
+            android:id="@+id/Thunbmail"
+            android:layout_width="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_height="250dp"/>
 
-    <include layout="@layout/content_change_picture"/>
+    </RelativeLayout>
 
-    <android.support.design.widget.FloatingActionButton
-        android:id="@+id/fab"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom|end"
-        android:layout_margin="@dimen/fab_margin"
-        android:src="@android:drawable/ic_dialog_email" />
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
-</android.support.design.widget.CoordinatorLayout>
+        <Button
+            android:id="@+id/boutonCapture"
+            android:layout_marginTop="20dp"
+            android:layout_width="wrap_content"
+            android:background="@drawable/button_connexion"
+            android:layout_height="30dp"
+            android:layout_centerHorizontal="true"
+            android:text="Prendre une photo" />
+
+        <Button
+            android:id="@+id/boutonGallery"
+            android:layout_marginTop="70dp"
+            android:background="@drawable/button_connexion"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:layout_centerHorizontal="true"
+            android:text="Depuis la gallerie" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/suivant_picture"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:background="@drawable/suivant"
+            android:clickable="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="20dp"
+            android:layout_marginRight="20dp"
+            />
+
+    </RelativeLayout>
+</LinearLayout>
