@@ -71,7 +71,7 @@ class DefaultController extends NTAngularController
         $users = $repository->getUserNotNull();
         $list = array();
 
-        if ($geoService->createGeolocalisation($user->getLatitude(), $user->getLongitude()))
+        if ($geoService->createGeolocalisation(str_replace(',', '.', $user->getLatitude()), str_replace(',', '.', $user->getLongitude())))
             $list = $geoService->getUserInZoneFromArray($users);
         else
             return $this->NTRender(array(

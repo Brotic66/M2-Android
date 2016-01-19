@@ -39,7 +39,7 @@ class GeolocalisationService
         $toRtn = array();
 
         foreach ($users as $user) {
-            $userGeo = GeoLocation::fromDegrees($user->getLatitude(), $user->getLongitude());
+            $userGeo = GeoLocation::fromDegrees(str_replace(',', '.', $user->getLatitude()), str_replace(',', '.', $user->getLongitude()));
 
             /** ===== distance : 1km ===== */
 
