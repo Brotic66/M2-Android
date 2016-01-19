@@ -207,8 +207,9 @@ class UserController extends NTAngularController
 
         if (!$user->getFriends()->contains($friend) && !$user->getFriendsWithMe()->contains($friend) && $user != $friend)
             return $this->NTRender(array(
-                'response' => 0,
-                'message' => 'Cette personne n\'esrt pas votre ami !'
+                'response' => 1,
+                'isFriend' => 0,
+                'pseudo' => $friend->getUsername()
             ));
 
         return $this->NTRender(array(

@@ -36,8 +36,8 @@
       <file leaf-file-name="UserController.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/ServerBundle/Controller/UserController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.5043029">
-              <caret line="207" column="104" selection-start-line="207" selection-start-column="104" selection-end-line="207" selection-end-column="104" />
+            <state vertical-scroll-proportion="0.38037866">
+              <caret line="203" column="32" selection-start-line="203" selection-start-column="32" selection-end-line="203" selection-end-column="32" />
               <folding>
                 <element signature="e#43#103#0#PHP" expanded="true" />
               </folding>
@@ -833,8 +833,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/ServerBundle/Controller/UserController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5043029">
-          <caret line="207" column="104" selection-start-line="207" selection-start-column="104" selection-end-line="207" selection-end-column="104" />
+        <state vertical-scroll-proportion="0.38037866">
+          <caret line="203" column="32" selection-start-line="203" selection-start-column="32" selection-end-line="203" selection-end-column="32" />
           <folding>
             <element signature="e#43#103#0#PHP" expanded="true" />
           </folding>
