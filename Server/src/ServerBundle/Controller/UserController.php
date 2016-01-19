@@ -4,6 +4,7 @@ namespace ServerBundle\Controller;
 
 use Brotic66\NTAngularBundle\Controller\NTAngularController;
 use Doctrine\DBAL\Exception\UniqueConstraintViolationException;
+use ServerBundle\Entity\Demande;
 use ServerBundle\Entity\User;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\HttpFoundation\Response;
@@ -217,6 +218,104 @@ class UserController extends NTAngularController
             'latitude' => $friend->getLatitude(),
             'longitude' => $friend->getLongitude(),
             'pseudo' => $friend->getUsername()
+        ));
+    }
+
+    /**
+     * @param $id
+     * @Route("/addFriend/{id}/{token}/{friendId}/")
+     * @return Response
+     */
+    public function addFriendAction($id, $token, $friendId)
+    {
+        $userService = $this->get('server.user_service');
+        $em = $this->getDoctrine()->getManager();
+        $repository = $this->getDoctrine()->getRepository('ServerBundle:User');
+        $user = $repository->findOneBy(array(
+            'id' => $id
+        ));
+        $friend = $repository->findOneBy(array(
+            'id' => $friendId
+        ));
+
+        if (!$user || !$friend)
+            return $this->NTRender(array(
+                'response' => 404,
+                'message' => 'Utilisateur inconnu'
+            ));
+
+        if (!$userService->tokenExist($user, $token))
+            return $this->NTRender(array(
+                'response' => 0,
+                'message' => 'Erreur d\'authentification'
+            ));
+
+        if (!$user->getFriends()->contains($friend)
+            && !$user->getFriendsWithMe()->contains($friend)
+            && $user != $friend) {
+            if ($userService->notExistDemande($em, $user, $friend)) {
+                $demande = new Demande();
+                $demande->setDemandeur($user);
+                $demande->setDemande($friend);
+
+                $em->persist($demande);
+                $em->flush();
+
+                /**
+                 * Envoi de la notification Push ma gueule !!!
+                 */
+
+                return $this->NTRender(array(
+                    'response' => 1
+                ));
+            } else {
+                return $this->NTRender(array(
+                    'response' => -2
+                ));
+            }
+        } else {
+            return $this->NTRender(array(
+            'response' => -1
+        ));
+        }
+    }
+
+    /**
+     * @Route("/getDemands/{id}/{token}/")
+     */
+    public function getDemandsAction($id, $token)
+    {
+        $userService = $this->get('server.user_service');
+        $em = $this->getDoctrine()->getManager();
+        $repository = $this->getDoctrine()->getRepository('ServerBundle:User');
+        $user = $repository->findOneBy(array(
+            'id' => $id
+        ));
+
+        if (!$user)
+            return $this->NTRender(array(
+                'response' => 404,
+                'message' => 'Utilisateur inconnu'
+            ));
+
+        if (!$userService->tokenExist($user, $token))
+            if (!$user)
+                return $this->NTRender(array(
+                    'response' => 0,
+                    'message' => 'Erreur d\'authentification'
+                ));
+
+        $demandeDemandeur = $em->getRepository('ServerBundle:Demande')->findBy(array(
+            'demandeur' => $user
+        ));
+        $demandeDemande = $em->getRepository('ServerBundle:Demande')->findBy(array(
+            'demande' => $user
+        ));
+
+        return $this->NTRender(array(
+            'response' => 1,
+            'demandeDemandeur' => $userService->formatDemands($demandeDemandeur),
+            'demandeDemande' => $userService->formatDemands($demandeDemande)
         ));
     }
 }
