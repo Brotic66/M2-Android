@@ -7,8 +7,9 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../.idea/modules.xml" afterPath="$PROJECT_DIR$/../.idea/modules.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../.idea/vcs.xml" afterPath="$PROJECT_DIR$/../.idea/vcs.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ServerBundle/Controller/DefaultController.php" afterPath="$PROJECT_DIR$/src/ServerBundle/Controller/DefaultController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ServerBundle/Controller/UserController.php" afterPath="$PROJECT_DIR$/src/ServerBundle/Controller/UserController.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../app/app.iml" afterPath="$PROJECT_DIR$/../app/app.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../app/src/main/AndroidManifest.xml" afterPath="$PROJECT_DIR$/../app/src/main/AndroidManifest.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../app/src/main/java/brotic/findmyfriends/Activity/GeoActivity.java" afterPath="$PROJECT_DIR$/../app/src/main/java/brotic/findmyfriends/Activity/GeoActivity.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../app/src/main/java/brotic/findmyfriends/Presenter/MainAfterLoginPresenter.java" afterPath="$PROJECT_DIR$/../app/src/main/java/brotic/findmyfriends/Presenter/MainAfterLoginPresenter.java" />
     </list>
@@ -32,11 +33,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="UserController.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="UserController.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/ServerBundle/Controller/UserController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-15.518518">
-              <caret line="211" column="15" selection-start-line="211" selection-start-column="15" selection-end-line="211" selection-end-column="15" />
+            <state vertical-scroll-proportion="0.5043029">
+              <caret line="207" column="104" selection-start-line="207" selection-start-column="104" selection-end-line="207" selection-end-column="104" />
               <folding>
                 <element signature="e#43#103#0#PHP" expanded="true" />
               </folding>
@@ -76,10 +77,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="DefaultController.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="DefaultController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/ServerBundle/Controller/DefaultController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="1.898451">
+            <state vertical-scroll-proportion="-24.0">
               <caret line="82" column="24" selection-start-line="82" selection-start-column="24" selection-end-line="82" selection-end-column="24" />
               <folding />
             </state>
@@ -110,8 +111,8 @@
         <option value="$PROJECT_DIR$/src/ServerBundle/Services/GeolocalisationFactory.php" />
         <option value="$PROJECT_DIR$/src/ServerBundle/Repository/UserRepository.php" />
         <option value="$PROJECT_DIR$/src/ServerBundle/Services/GeolocalisationService.php" />
-        <option value="$PROJECT_DIR$/src/ServerBundle/Controller/UserController.php" />
         <option value="$PROJECT_DIR$/src/ServerBundle/Controller/DefaultController.php" />
+        <option value="$PROJECT_DIR$/src/ServerBundle/Controller/UserController.php" />
       </list>
     </option>
   </component>
@@ -814,16 +815,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ServerBundle/Controller/UserController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-15.518518">
-          <caret line="211" column="15" selection-start-line="211" selection-start-column="15" selection-end-line="211" selection-end-column="15" />
-          <folding>
-            <element signature="e#43#103#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/ServerBundle/Services/UserService.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="3.8148148">
@@ -834,9 +825,19 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/ServerBundle/Controller/DefaultController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.898451">
+        <state vertical-scroll-proportion="-24.0">
           <caret line="82" column="24" selection-start-line="82" selection-start-column="24" selection-end-line="82" selection-end-column="24" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ServerBundle/Controller/UserController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.5043029">
+          <caret line="207" column="104" selection-start-line="207" selection-start-column="104" selection-end-line="207" selection-end-column="104" />
+          <folding>
+            <element signature="e#43#103#0#PHP" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
