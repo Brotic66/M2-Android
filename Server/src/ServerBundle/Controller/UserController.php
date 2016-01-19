@@ -98,7 +98,7 @@ class UserController extends NTAngularController
      * @param $token
      * @return mixed
      *
-     * @Route("/changeMdp/{id}/{token}/{old}/{new}")
+     * @Route("/changeMdp/{id}/{token}/{old}/{new}/")
      */
     public function changerMdpAction($id, $token, $old, $new)
     {
