@@ -79,7 +79,7 @@ class DefaultController extends NTAngularController
             ));
 
         return $this->NTRender(array(
-            'response' => 0,
+            'response' => 1,
             'users' => $list
         ));
     }

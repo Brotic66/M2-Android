@@ -34,21 +34,23 @@ class GeolocalisationService
             return true;
     }
 
-    public function getUserInZoneFromArray($users)
+    public function getUserInZoneFromArray($users, $current)
     {
         $toRtn = array();
 
+        $i = 0;
         foreach ($users as $user) {
-            $userGeo = GeoLocation::fromDegrees(str_replace(',', '.', $user->getLatitude()), str_replace(',', '.', $user->getLongitude()));
+            if ($user != $current) {
+                $userGeo = GeoLocation::fromDegrees(str_replace(',', '.', $user->getLatitude()), str_replace(',', '.', $user->getLongitude()));
 
-            /** ===== distance : 1km ===== */
+                /** ===== distance : 1km ===== */
 
-            $i = 0;
-            if ($this->isInZone($userGeo, 1)) {
-                $toRtn[$i]['id'] = $user->getId();
-                $toRtn[$i]['username'] = $user->getUsername();
+                if ($this->isInZone($userGeo, 1)) {
+                    $toRtn[$i]['id'] = $user->getId();
+                    $toRtn[$i]['username'] = $user->getUsername();
 
-                $i++;
+                    $i++;
+                }
             }
         }
         return $toRtn;
