@@ -14,15 +14,15 @@ import brotic.findmyfriends.Service.ActivityLauncher;
  * @date 04/11/2015
  * @version 1.0.0
  */
-public class MainClickEvent implements View.OnClickListener {
+public class MainClickListener implements View.OnClickListener {
 
     private int friendId;
 
-    public MainClickEvent() {
+    public MainClickListener() {
         friendId = 0;
     }
 
-    public MainClickEvent(int friendId) {
+    public MainClickListener(int friendId) {
         this.friendId = friendId;
     }
 

@@ -51,7 +51,53 @@ class UserController extends NTAngularController
 
     /**
      * @param $id
+     * @param $sid
+     * @return mixed
+     *
+     * N'a rien à foutre dans ce controleur bordel de merde !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+     */
+    public function changerPhotoAction($id, $token)
+    {
+        $userService = $this->get('server.user_service');
+        $em = $this->getDoctrine()->getManager();
+        $repository = $this->getDoctrine()->getRepository('ServerBundle:User');
+        $user = $repository->findOneBy(array(
+            'id' => $id
+        ));
+
+        if (!$user)
+            return $this->NTRender(array(
+                'response' => 404,
+                'message' => 'Utilisateur inconnu'
+            ));
+
+        if (!$userService->tokenExist($user, $token))
+            return $this->NTRender(array(
+                'response' => 0,
+                'message' => 'Erreur d\'authentification'
+            ));
+
+        $date = new \DateTime();
+        $data = base64_decode(file_get_contents('php://input'));
+        $cheminElement = 'Files/Profil/'. $id .'/'. $date->format('dmYHis') .'.jpg';
+
+        $img = imagecreatefromstring($data);
+        imagejpeg($img, $cheminElement);
+
+        $user->setProfilPicture($cheminElement);
+
+        $em->flush();
+
+        return $this->NTRender(array(
+            'response' => 1
+        ));
+    }
+
+
+    /**
+     * @param $id
      * @Route("/position/{id}/{token}/{latitude}/{longitude}/")
+     * @return Response
      */
     public function positionAction($id, $token, $latitude, $longitude)
     {
@@ -90,6 +136,7 @@ class UserController extends NTAngularController
     /**
      * @param $id
      * @Route("/getPosition/{id}/{token}/{friendId}/")
+     * @return Response
      */
     public function getPositionAction($id, $token, $friendId)
     {
