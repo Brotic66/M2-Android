@@ -51,10 +51,10 @@ class UserController extends NTAngularController
 
     /**
      * @param $id
-     * @param $sid
+     * @param $token
      * @return mixed
      *
-     * N'a rien à foutre dans ce controleur bordel de merde !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+     * @Route("/changePicture/{id}/{token}/")
      */
     public function changerPhotoAction($id, $token)
     {
