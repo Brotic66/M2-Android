@@ -1,0 +1,56 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="match_parent"
+    android:background="#fff"
+    tools:context="brotic.selfidefi_v1.Activity.MainActivity">
+
+    <include layout="@layout/menu_top" />
+    
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <EditText
+            android:id="@+id/ancien_mdp"
+            android:layout_width="250dp"
+            android:layout_height="50dp"
+            android:hint="Ancien mot de passe"
+            android:inputType="textPassword"
+            android:textColorHint="#fff"
+            android:background="@drawable/button_connexion"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="30dp"/>
+
+        <EditText
+            android:id="@+id/nouveau_mdp"
+            android:layout_width="250dp"
+            android:layout_height="50dp"
+            android:hint="Nouveau mot de passe"
+            android:inputType="textPassword"
+            android:textColorHint="#fff"
+            android:background="@drawable/button_connexion"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="100dp"/>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/changeMdp_valider"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:background="@drawable/suivant"
+        android:clickable="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="20dp"
+        android:layout_marginRight="20dp"
+        />
+
+    </RelativeLayout>
+
+</LinearLayout>

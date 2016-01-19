@@ -93,6 +93,49 @@ class UserController extends NTAngularController
         ));
     }
 
+    /**
+     * @param $id
+     * @param $token
+     * @return mixed
+     *
+     * @Route("/changeMdp/{id}/{token}/{old}/{new}")
+     */
+    public function changerMdpAction($id, $token, $old, $new)
+    {
+        $userService = $this->get('server.user_service');
+        $em = $this->getDoctrine()->getManager();
+        $repository = $this->getDoctrine()->getRepository('ServerBundle:User');
+        $user = $repository->findOneBy(array(
+            'id' => $id
+        ));
+
+        if (!$user)
+            return $this->NTRender(array(
+                'response' => 404,
+                'message' => 'Utilisateur inconnu'
+            ));
+
+        if (!$userService->tokenExist($user, $token))
+            return $this->NTRender(array(
+                'response' => 0,
+                'message' => 'Erreur d\'authentification'
+            ));
+
+        if (!password_verify($old, $user->getPassword()))
+            return $this->NTRender(array(
+                'response' => 0,
+                'message' => 'Mauvais mot de passe'
+            ));
+
+        $user->setPassword(password_hash($new, PASSWORD_BCRYPT));
+
+        $em->flush();
+
+        return $this->NTRender(array(
+            'response' => 1
+        ));
+    }
+
 
     /**
      * @param $id
