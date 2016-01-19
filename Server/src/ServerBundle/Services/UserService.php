@@ -68,7 +68,7 @@ class UserService
         foreach ($demands as $demand) {
             $toRtn[$i]['demandeurId'] = $demand->getDemandeur()->getId();
             $toRtn[$i]['demandeurUsername'] = $demand->getDemandeur()->getUsername();
-            $toRtn[$i]['demandeId'] = $demand->getDemande()->getUsername();
+            $toRtn[$i]['demandeId'] = $demand->getDemande()->getId();
             $toRtn[$i]['demandeUsername'] = $demand->getDemande()->getUsername();
 
             $i++;
