@@ -8,3 +8,6 @@ services:
 
     server.user_service:
         class: ServerBundle\Services\UserService
+
+    server.geo_service:
+        class: ServerBundle\Services\GeolocalisationService
