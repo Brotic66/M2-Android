@@ -6,6 +6,7 @@
  */
 
 namespace ServerBundle\Services;
+use ServerBundle\Services\GeoLocation;
 
 
 class GeolocalisationService
