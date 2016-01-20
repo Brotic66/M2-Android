@@ -122,7 +122,7 @@ class SecurityController extends NTAngularController
     }
 
     /**
-     * @Route("/testgcm/{type}")
+     * @Route("/testgcm/{type}/{id}")
      *
      * type :
      *  - addFriend
@@ -130,13 +130,26 @@ class SecurityController extends NTAngularController
      *  - un ami vient de partager sa position (username en paramètre)
      *  - askPosition (username en paramètre)
      */
-    public function testGCM($type)
+    public function testGCM($type, $id)
     {
+        $userService = $this->get('server.user_service');
+        $em = $this->getDoctrine()->getManager();
+        $repository = $this->getDoctrine()->getRepository('ServerBundle:User');
+        $user = $repository->findOneBy(array(
+            'id' => $id
+        ));
+
+        if (!$user)
+            return $this->NTRender(array(
+                'response' => 404,
+                'message' => 'Utilisateur inconnu'
+            ));
+
         $gcmService = $this->get('server.gcm_service');
         $gcmService->send(array(
             "type" => $type
         ),
-            'fQglG8ZfZt4:APA91bHsixdMa1LNX-o4oScaHYVXh8TQ72XTzmnNtAS20aXvFKcOG1h_EVULlqtadRc8bMSh4xBrMzbDj8oA757z-0Lox3GTE2K1Vk7YvZsMLF24LvDZ98jHQg2AZ5NGjAm2PGxwbHlE');
+            $user->getGcmToken());
 
         return new Response(1);
     }
