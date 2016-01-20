@@ -224,6 +224,28 @@ class UserController extends NTAngularController
 
     /**
      * @param $id
+     * @Route("/addFriendByUsername/{id}/{token}/{username/")
+     * @return Response
+     */
+    public function addFriendByUsernameAction($id, $token, $username)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $repository = $this->getDoctrine()->getRepository('ServerBundle:User');
+        $friend = $repository->findOneBy(array(
+            'username' => $username
+        ));
+
+        if (!$friend)
+            return $this->NTRender(array(
+                'response' => 404,
+                'message' => 'Utilisateur inconnu'
+            ));
+        else
+            return $this->addFriendAction($id, $token, $friend->getId());
+    }
+
+    /**
+     * @param $id
      * @Route("/addFriend/{id}/{token}/{friendId}/")
      * @return Response
      */
