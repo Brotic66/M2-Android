@@ -44,7 +44,6 @@ public class MainPresenter {
                 }
             }.start();
         } catch (IOException e) {
-            Toast.makeText(MyActivity.getAct().getBaseContext(), "Fichier inexistant", Toast.LENGTH_SHORT).show();
 
             new CountDownTimer(2000, 1000) {
                 @Override

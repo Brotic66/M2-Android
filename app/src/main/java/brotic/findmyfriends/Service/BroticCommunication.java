@@ -95,7 +95,6 @@ public class BroticCommunication {
             String valeur = entry.getValue();
 
             query += URLEncoder.encode(valeur, "UTF-8").replace("+", "%20") +"/";
-            System.out.println(valeur);
         }
 
         java.net.URL url = new URL(URL + this.controleur + "/" + query);

@@ -29,8 +29,6 @@ import brotic.findmyfriends.Security.MyActivity;
  */
 public class MyGcmListenerService extends GcmListenerService {
 
-    private static final String TAG = "Fuck";
-
     @Override
     public void onMessageReceived(String from, Bundle data) {
         String message = data.getString("type");
