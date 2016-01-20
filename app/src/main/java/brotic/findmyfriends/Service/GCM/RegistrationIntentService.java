@@ -7,9 +7,17 @@ import android.util.Log;
 import com.google.android.gms.gcm.GoogleCloudMessaging;
 import com.google.android.gms.iid.InstanceID;
 
+import org.xml.sax.SAXException;
+
 import java.io.IOException;
 
+import javax.xml.parsers.ParserConfigurationException;
+
+import brotic.findmyfriends.AsyncTask.SendTokenGCMTask;
+import brotic.findmyfriends.Exception.SecurityContextException;
 import brotic.findmyfriends.R;
+import brotic.findmyfriends.Security.MyActivity;
+import brotic.findmyfriends.Service.BroticCommunication;
 
 /**
  * @author Brice VICO
@@ -30,7 +38,15 @@ public class RegistrationIntentService extends IntentService {
                     GoogleCloudMessaging.INSTANCE_ID_SCOPE, null);
 
             Log.d("==== ALERT ====", "Voici le token : " + token);
-        } catch (IOException e) {
+
+            BroticCommunication com = new BroticCommunication("gcmToken");
+            com.addParamGet("id", String.valueOf(MyActivity.getSecurity().getUtilisateur().getId()));
+            com.addParamGet("token", MyActivity.getSecurity().getSid());
+            com.addParamGet("tokenGCM", token);
+
+            com.run();
+
+        } catch (IOException | SecurityContextException | ParserConfigurationException | SAXException e) {
             e.printStackTrace();
         }
     }

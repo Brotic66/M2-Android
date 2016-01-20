@@ -44,11 +44,24 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
-            android:layout_marginRight="50dp"
-            android:layout_alignParentRight="true"
+            android:layout_marginLeft="175dp"
+            android:layout_alignParentLeft="true"
             android:textSize="15dp"
             android:textColor="#f67f0f"
             android:text="Pseudo"/>
+
+        <ImageView
+            android:id="@+id/addFriend"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:background="@drawable/add_friend"
+            android:clickable="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="20dp"
+            android:layout_marginRight="20dp"
+            android:visibility="invisible"
+            />
 
     </RelativeLayout>
 

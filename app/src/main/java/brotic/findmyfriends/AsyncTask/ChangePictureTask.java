@@ -33,7 +33,7 @@ public class ChangePictureTask extends BroticAsyncTask
             else
                 Toast.makeText(MyActivity.getAct().getBaseContext(), MyActivity.getAct().getString(R.string.pictureNotChanged), Toast.LENGTH_SHORT).show();
 
-            MyActivity.getAct().onBackPressed();
+            MyActivity.getAct().finish();
 
         } catch (JSONException e) {
             e.printStackTrace();

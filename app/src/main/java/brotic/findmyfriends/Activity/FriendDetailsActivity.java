@@ -59,6 +59,7 @@ public class FriendDetailsActivity extends FragmentActivity implements OnMapRead
                 com.addArg("profilPicture", this.findViewById(R.id.profilPicture));
                 com.addArg("pseudo", this.findViewById(R.id.pseudo));
                 com.addArg("friendId", this.friendId);
+                com.addArg("addFriend", this.findViewById(R.id.addFriend));
 
                 FriendDetailsTask task = new FriendDetailsTask();
                 task.execute(com);

@@ -96,6 +96,8 @@ public class SecurityPresenter {
 
                 MyActivity.getSecurity().login(user, rcv.getString("token"));
             }
+            else
+                Toast.makeText(MyActivity.getAct().getBaseContext(), MyActivity.getAct().getString(R.string.loginError), Toast.LENGTH_SHORT).show();
         } catch (JSONException | SecurityContextException e) {
             e.printStackTrace();
         }

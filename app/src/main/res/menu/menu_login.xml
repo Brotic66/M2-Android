@@ -1,6 +1,8 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
+
+
     <item
         android:id="@+id/geo"
         android:icon="@drawable/geo"
@@ -12,6 +14,12 @@
         android:icon="@drawable/ic_social"
         app:showAsAction="ifRoom"
         android:title="@string/param" />
+
+    <item
+        android:id="@+id/addFriend"
+        android:icon="@drawable/add_friend_black"
+        app:showAsAction="ifRoom"
+        android:title="@string/addFriendByPseudo" />
 
     <item
         android:id="@+id/settings"

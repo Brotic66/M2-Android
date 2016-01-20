@@ -172,6 +172,24 @@ class UserController extends NTAngularController
         $user->setLongitude($longitude);
         $em->flush();
 
+        $gcmService = $this->get('server.gcm_service');
+
+        foreach ($user->getFriends() as $friend)
+            if ($friend->getGcmToken() != null)
+                $gcmService->send(array(
+                    "type" => 'position',
+                    'username' => $user->getUsername()
+                ),
+                    $friend->getGcmToken());
+
+        foreach ($user->getFriendsWithMe() as $friend)
+            if ($friend->getGcmToken() != null)
+                $gcmService->send(array(
+                    "type" => 'position',
+                    'username' => $user->getUsername()
+                ),
+                    $friend->getGcmToken());
+
         return $this->NTRender(array(
             'response' => 1
         ));
@@ -212,6 +230,16 @@ class UserController extends NTAngularController
                 'isFriend' => 0,
                 'pseudo' => $friend->getUsername()
             ));
+
+        $gcmService = $this->get('server.gcm_service');
+
+        if ($friend->getGcmToken() != null)
+        $gcmService->send(array(
+            "type" => 'askPosition',
+            'username' => $user->getUsername()
+            ),
+            $friend->getGcmToken());
+
 
         return $this->NTRender(array(
             'response' => 1,
@@ -284,9 +312,13 @@ class UserController extends NTAngularController
                 $em->persist($demande);
                 $em->flush();
 
-                /**
-                 * Envoi de la notification Push ma gueule !!!
-                 */
+                $gcmService = $this->get('server.gcm_service');
+
+                if ($friend->getGcmToken() != null)
+                    $gcmService->send(array(
+                        "type" => 'addFriend',
+                    ),
+                        $friend->getGcmToken());
 
                 return $this->NTRender(array(
                     'response' => 1
@@ -383,6 +415,15 @@ class UserController extends NTAngularController
         $user->addFriend($friend);
         $em->remove($demande);
         $em->flush();
+
+        $gcmService = $this->get('server.gcm_service');
+
+        if ($friend->getGcmToken() != null)
+            $gcmService->send(array(
+                "type" => 'acceptFriend',
+                'username' => $user->getUsername()
+            ),
+                $friend->getGcmToken());
 
         return $this->NTRender(array(
         'response' => 1

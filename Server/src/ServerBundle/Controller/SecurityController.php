@@ -127,7 +127,8 @@ class SecurityController extends NTAngularController
      * type :
      *  - addFriend
      *  - acceptFriend
-     *  - un ami vient de partager sa position (id en paramètre)
+     *  - un ami vient de partager sa position (username en paramètre)
+     *  - askPosition (username en paramètre)
      */
     public function testGCM($type)
     {

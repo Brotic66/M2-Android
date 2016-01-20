@@ -25,8 +25,5 @@ public class MainActivity extends MyActivity {
 
         connexion.setOnClickListener(new MainClickListener());
         inscription.setOnClickListener(new MainClickListener());
-
-        Intent intent = new Intent(this, RegistrationIntentService.class);
-        startService(intent);
     }
 }

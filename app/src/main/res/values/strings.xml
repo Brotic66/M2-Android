@@ -34,4 +34,23 @@
     <string name="mdpNotChanged">Erreur : password not changed</string>
     <string name="mdpChanged">Password changed successfull</string>
     <string name="geo">Geolocalisation</string>
+    <string name="askFriendwithUs">Demande d\'amis</string>
+    <string name="loginError">Error on login</string>
+    <string name="friendAccepted">Friend has just been accepted</string>
+    <string name="friendNotAccept">friend have\'nt been accept</string>
+    <string name="friendAsked">Ask to becom friend just send</string>
+    <string name="friendNotAsk">A problem is arrived while request to your friend</string>
+    <string name="addFriendByPseudo">Add a friend by his pseudo</string>
+    <string name="userNotExist">This user not exist</string>
+    <string name="pleasePseudo">Please specifie an username</string>
+    <string name="addFriend">Add a friend</string>
+    <string name="sms">Hey ! Join me on Search My Friend on Android !!</string>
+    <string name="smsSend">SMS have been send</string>
+    <string name="addFriendNotif">An user want add you as friend</string>
+    <string name="addFriendNotifTitle">Invitation</string>
+    <string name="askFriendAcceptTitle">Ask friend accepted</string>
+    <string name="askFriendAccept">have juste been accepted you</string>
+    <string name="friendShareTitle">have just been shared his new position</string>
+    <string name="askPositionTitle">Ask to location</string>
+    <string name="askPosition">is watching your location</string>
 </resources>

@@ -17,6 +17,7 @@ import brotic.findmyfriends.Presenter.MainAfterLoginPresenter;
 import brotic.findmyfriends.R;
 import brotic.findmyfriends.Security.MyActivity;
 import brotic.findmyfriends.Service.ActivityLauncher;
+import brotic.findmyfriends.Service.GCM.RegistrationIntentService;
 import brotic.findmyfriends.Service.MyLocationListener;
 import brotic.findmyfriends.Service.PositionService;
 import brotic.findmyfriends.Service.ShakeEventManager;
@@ -45,8 +46,8 @@ public class MainLoginActivity extends MyActivity implements ShakeEventManager.S
 
         MainAfterLoginPresenter.main();
 
-       /* Intent intent = new Intent(this, PositionService.class);
-        startService(intent);*/
+        Intent intent = new Intent(this, RegistrationIntentService.class);
+        startService(intent);
 
         isShaked = false;
         sm = new ShakeEventManager();

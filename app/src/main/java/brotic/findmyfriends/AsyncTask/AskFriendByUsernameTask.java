@@ -13,14 +13,14 @@ import brotic.findmyfriends.Security.MyActivity;
  * @author Brice VICO
  * @date 19/01/2016
  */
-public class ChangeMdpTask extends BroticAsyncTask
+public class AskFriendByUsernameTask extends BroticAsyncTask
 {
     private ProgressDialog prog;
 
     @Override
     protected void onPreExecute()
     {
-        this.prog = ProgressDialog.show(MyActivity.getAct(), "Modification", "Veuillez patienter", true);
+        this.prog = ProgressDialog.show(MyActivity.getAct(), MyActivity.getAct().getString(R.string.wait), MyActivity.getAct().getString(R.string.pleaseWait), true);
     }
 
     @Override
@@ -31,9 +31,11 @@ public class ChangeMdpTask extends BroticAsyncTask
 
         try {
             if (jsonObject.getInt("response") == 1)
-                Toast.makeText(MyActivity.getAct().getBaseContext(), MyActivity.getAct().getString(R.string.mdpChanged), Toast.LENGTH_SHORT).show();
+                Toast.makeText(MyActivity.getAct().getBaseContext(), MyActivity.getAct().getString(R.string.friendAsked), Toast.LENGTH_SHORT).show();
+            else if (jsonObject.getInt("response") == 404)
+                Toast.makeText(MyActivity.getAct().getBaseContext(), MyActivity.getAct().getString(R.string.userNotExist), Toast.LENGTH_SHORT).show();
             else
-                Toast.makeText(MyActivity.getAct().getBaseContext(), MyActivity.getAct().getString(R.string.mdpNotChanged), Toast.LENGTH_SHORT).show();
+                Toast.makeText(MyActivity.getAct().getBaseContext(), MyActivity.getAct().getString(R.string.friendNotAsk), Toast.LENGTH_SHORT).show();
 
             MyActivity.getAct().finish();
 

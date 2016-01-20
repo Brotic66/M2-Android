@@ -4,6 +4,7 @@ import android.content.Intent;
 
 import java.util.ArrayList;
 
+import brotic.findmyfriends.Service.Builders.DemandeBuilder;
 import brotic.findmyfriends.Service.Builders.IBuilder;
 import brotic.findmyfriends.Service.Builders.UserBuilder;
 
@@ -20,7 +21,10 @@ public class BuilderFactory {
         switch (name) {
             case "user":
                 builder =  new UserBuilder();
-            break;
+                break;
+            case "demand":
+                builder = new DemandeBuilder();
+                break;
         }
 
         return builder;

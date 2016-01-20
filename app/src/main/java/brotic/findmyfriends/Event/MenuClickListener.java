@@ -34,10 +34,13 @@ public class MenuClickListener implements Toolbar.OnMenuItemClickListener {
                 ActivityLauncher.create("ConfigActivity", false, null);
                 return true;
             case R.id.contact:
+                ActivityLauncher.create("ContactActivity", false, null);
                 return true;
             case R.id.geo:
                 ActivityLauncher.create("GeoActivity", false, null);
                 return true;
+            case R.id.addFriend:
+                ActivityLauncher.create("AddFriendActivity", false, null);
             default:
                 return true;
         }

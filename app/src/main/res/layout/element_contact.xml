@@ -1,0 +1,54 @@
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <RelativeLayout
+        android:id="@+id/relFriend"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:clickable="true">
+
+        <TextView
+            android:id="@+id/pseudo"
+            android:text="@string/Pseudo"
+            android:textSize="15sp"
+            android:textColor="#f67f0f"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="20dp"
+            />
+
+        <TextView
+            android:id="@+id/phoneNbr"
+            android:text="nbr"
+            android:textSize="15sp"
+            android:textColor="#f67f0f"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="140dp"
+            />
+
+
+        <ImageView
+            android:id="@+id/buttonSms"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/message"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="10dp" />
+
+
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="10dp"
+            android:background="#f67f0f" />
+
+    </RelativeLayout>
+</RelativeLayout>
