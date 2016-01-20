@@ -320,7 +320,7 @@ class UserController extends NTAngularController
     }
 
     /**
-     * @Route("/acceptFriend/{id}/{token}/{friendId}")
+     * @Route("/acceptFriend/{id}/{token}/{friendId}/")
      */
     public function acceptFriedAction($id, $token, $friendId)
     {
