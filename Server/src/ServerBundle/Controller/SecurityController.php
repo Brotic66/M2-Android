@@ -7,6 +7,7 @@ use Doctrine\DBAL\Exception\UniqueConstraintViolationException;
 use ServerBundle\Entity\User;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\Filesystem\Filesystem;
+use Symfony\Component\HttpFoundation\Response;
 
 class SecurityController extends NTAngularController
 {
@@ -84,5 +85,50 @@ class SecurityController extends NTAngularController
             'userPhone' => $user->getPhoneNumber(),
             'token' => $token
         ));
+    }
+
+    /**
+     * @Route("/gcmToken/{id}/{token}/{gcmToken}/")
+     */
+    public function gcmAction($id, $token, $gcmToken)
+    {
+        $userService = $this->get('server.user_service');
+        $em = $this->getDoctrine()->getManager();
+        $repository = $this->getDoctrine()->getRepository('ServerBundle:User');
+        $user = $repository->findOneBy(array(
+            'id' => $id
+        ));
+
+        if (!$user)
+            return $this->NTRender(array(
+                'response' => 404,
+                'message' => 'Utilisateur inconnu'
+            ));
+
+        if (!$userService->tokenExist($user, $token))
+            if (!$user)
+                return $this->NTRender(array(
+                    'response' => 0,
+                    'message' => 'Erreur d\'authentification'
+                ));
+
+        $user->setGcmToken($gcmToken);
+        $em->flush();
+
+        return $this->NTRender(
+            array(
+                'response' => 1
+            ));
+    }
+
+    /**
+     * @Route("/testgcm")
+     */
+    public function testGCM()
+    {
+        $gcmService = $this->get('server.gcm_service');
+        $gcmService->send(array("test" => 'test'), 'lol');
+
+        return new Response(1);
     }
 }

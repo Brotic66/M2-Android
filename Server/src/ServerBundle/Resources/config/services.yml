@@ -11,3 +11,8 @@ services:
 
     server.geo_service:
         class: ServerBundle\Services\GeolocalisationService
+
+    server.gcm_service:
+        class: ServerBundle\Services\GCMService
+        arguments: ['%gcm_api_key%']
+

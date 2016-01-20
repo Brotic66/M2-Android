@@ -87,6 +87,13 @@ class User
      */
     private $longitude;
 
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="gcm_token", type="string", length=1024, nullable=true)
+     */
+    private $gcmToken;
+
 
     public function __construct()
     {
@@ -297,6 +304,22 @@ class User
     public function addFriendWithMe(User $friend)
     {
         $this->friendsWithMe[] = $friend;
+    }
+
+    /**
+     * @return string
+     */
+    public function getGcmToken()
+    {
+        return $this->gcmToken;
+    }
+
+    /**
+     * @param string $gcmToken
+     */
+    public function setGcmToken($gcmToken)
+    {
+        $this->gcmToken = $gcmToken;
     }
 }
 
