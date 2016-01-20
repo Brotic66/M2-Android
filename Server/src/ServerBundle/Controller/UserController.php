@@ -224,7 +224,7 @@ class UserController extends NTAngularController
 
     /**
      * @param $id
-     * @Route("/addFriendByUsername/{id}/{token}/{username/")
+     * @Route("/addFriendByUsername/{id}/{token}/{username}/")
      * @return Response
      */
     public function addFriendByUsernameAction($id, $token, $username)

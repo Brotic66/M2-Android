@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="e5e410dd-0aba-44ff-aad5-d735063d15b9" name="Default" comment="">
       <change type="DELETED" beforePath="$PROJECT_DIR$/../FindMyFriends.iml" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../.idea/misc.xml" afterPath="$PROJECT_DIR$/../.idea/misc.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../.idea/modules.xml" afterPath="$PROJECT_DIR$/../.idea/modules.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../.idea/vcs.xml" afterPath="$PROJECT_DIR$/../.idea/vcs.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
@@ -12,6 +11,8 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../app/src/main/AndroidManifest.xml" afterPath="$PROJECT_DIR$/../app/src/main/AndroidManifest.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../app/src/main/java/brotic/findmyfriends/Activity/FriendDetailsActivity.java" afterPath="$PROJECT_DIR$/../app/src/main/java/brotic/findmyfriends/Activity/FriendDetailsActivity.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../app/src/main/java/brotic/findmyfriends/Activity/GeoActivity.java" afterPath="$PROJECT_DIR$/../app/src/main/java/brotic/findmyfriends/Activity/GeoActivity.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../app/src/main/java/brotic/findmyfriends/AsyncTask/ChangeMdpTask.java" afterPath="$PROJECT_DIR$/../app/src/main/java/brotic/findmyfriends/AsyncTask/ChangeMdpTask.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../app/src/main/java/brotic/findmyfriends/AsyncTask/ChangePictureTask.java" afterPath="$PROJECT_DIR$/../app/src/main/java/brotic/findmyfriends/AsyncTask/ChangePictureTask.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../app/src/main/java/brotic/findmyfriends/AsyncTask/FriendDetailsTask.java" afterPath="$PROJECT_DIR$/../app/src/main/java/brotic/findmyfriends/AsyncTask/FriendDetailsTask.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../app/src/main/java/brotic/findmyfriends/Event/MenuClickListener.java" afterPath="$PROJECT_DIR$/../app/src/main/java/brotic/findmyfriends/Event/MenuClickListener.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../app/src/main/java/brotic/findmyfriends/Presenter/MainAfterLoginPresenter.java" afterPath="$PROJECT_DIR$/../app/src/main/java/brotic/findmyfriends/Presenter/MainAfterLoginPresenter.java" />
@@ -20,6 +21,7 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../app/src/main/java/brotic/findmyfriends/Service/ActivityLauncher.java" afterPath="$PROJECT_DIR$/../app/src/main/java/brotic/findmyfriends/Service/ActivityLauncher.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../app/src/main/java/brotic/findmyfriends/Service/BuilderFactory.java" afterPath="$PROJECT_DIR$/../app/src/main/java/brotic/findmyfriends/Service/BuilderFactory.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../app/src/main/res/layout/content_friend_details.xml" afterPath="$PROJECT_DIR$/../app/src/main/res/layout/content_friend_details.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../app/src/main/res/menu/menu_login.xml" afterPath="$PROJECT_DIR$/../app/src/main/res/menu/menu_login.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../app/src/main/res/values-fr/strings.xml" afterPath="$PROJECT_DIR$/../app/src/main/res/values-fr/strings.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../app/src/main/res/values/strings.xml" afterPath="$PROJECT_DIR$/../app/src/main/res/values/strings.xml" />
     </list>
@@ -46,8 +48,8 @@
       <file leaf-file-name="UserController.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/ServerBundle/Controller/UserController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.16351119">
-              <caret line="229" column="39" selection-start-line="229" selection-start-column="39" selection-end-line="229" selection-end-column="39" />
+            <state vertical-scroll-proportion="0.07056799">
+              <caret line="226" column="59" selection-start-line="226" selection-start-column="59" selection-end-line="226" selection-end-column="59" />
               <folding>
                 <element signature="e#43#103#0#PHP" expanded="true" />
               </folding>
@@ -833,8 +835,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/ServerBundle/Controller/UserController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.16351119">
-          <caret line="229" column="39" selection-start-line="229" selection-start-column="39" selection-end-line="229" selection-end-column="39" />
+        <state vertical-scroll-proportion="0.07056799">
+          <caret line="226" column="59" selection-start-line="226" selection-start-column="59" selection-end-line="226" selection-end-column="59" />
           <folding>
             <element signature="e#43#103#0#PHP" expanded="true" />
           </folding>
