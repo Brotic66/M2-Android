@@ -122,12 +122,20 @@ class SecurityController extends NTAngularController
     }
 
     /**
-     * @Route("/testgcm")
+     * @Route("/testgcm/{type}")
+     *
+     * type :
+     *  - addFriend
+     *  - acceptFriend
+     *  - un ami vient de partager sa position (id en paramètre)
      */
-    public function testGCM()
+    public function testGCM($type)
     {
         $gcmService = $this->get('server.gcm_service');
-        $gcmService->send(array("test" => 'test'), 'fQglG8ZfZt4:APA91bHsixdMa1LNX-o4oScaHYVXh8TQ72XTzmnNtAS20aXvFKcOG1h_EVULlqtadRc8bMSh4xBrMzbDj8oA757z-0Lox3GTE2K1Vk7YvZsMLF24LvDZ98jHQg2AZ5NGjAm2PGxwbHlE');
+        $gcmService->send(array(
+            "type" => $type
+        ),
+            'fQglG8ZfZt4:APA91bHsixdMa1LNX-o4oScaHYVXh8TQ72XTzmnNtAS20aXvFKcOG1h_EVULlqtadRc8bMSh4xBrMzbDj8oA757z-0Lox3GTE2K1Vk7YvZsMLF24LvDZ98jHQg2AZ5NGjAm2PGxwbHlE');
 
         return new Response(1);
     }
