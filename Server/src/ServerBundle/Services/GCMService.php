@@ -25,7 +25,7 @@ class GCMService
     public function send($to, $data)
     {
         $post = array(
-            'data' => $data,
+            'data' => json_encode($data),
             'to' => $to
         );
 

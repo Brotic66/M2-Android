@@ -6,7 +6,7 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../.idea/modules.xml" afterPath="$PROJECT_DIR$/../.idea/modules.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../.idea/vcs.xml" afterPath="$PROJECT_DIR$/../.idea/vcs.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ServerBundle/Controller/SecurityController.php" afterPath="$PROJECT_DIR$/src/ServerBundle/Controller/SecurityController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ServerBundle/Services/GCMService.php" afterPath="$PROJECT_DIR$/src/ServerBundle/Services/GCMService.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../app/app.iml" afterPath="$PROJECT_DIR$/../app/app.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../app/src/main/AndroidManifest.xml" afterPath="$PROJECT_DIR$/../app/src/main/AndroidManifest.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../app/src/main/java/brotic/findmyfriends/Activity/FriendDetailsActivity.java" afterPath="$PROJECT_DIR$/../app/src/main/java/brotic/findmyfriends/Activity/FriendDetailsActivity.java" />
@@ -22,6 +22,7 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../app/src/main/java/brotic/findmyfriends/Presenter/UtilisateurPresenter.java" afterPath="$PROJECT_DIR$/../app/src/main/java/brotic/findmyfriends/Presenter/UtilisateurPresenter.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../app/src/main/java/brotic/findmyfriends/Service/ActivityLauncher.java" afterPath="$PROJECT_DIR$/../app/src/main/java/brotic/findmyfriends/Service/ActivityLauncher.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../app/src/main/java/brotic/findmyfriends/Service/BuilderFactory.java" afterPath="$PROJECT_DIR$/../app/src/main/java/brotic/findmyfriends/Service/BuilderFactory.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../app/src/main/java/brotic/findmyfriends/Service/GCM/MyGcmListenerService.java" afterPath="$PROJECT_DIR$/../app/src/main/java/brotic/findmyfriends/Service/GCM/MyGcmListenerService.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../app/src/main/java/brotic/findmyfriends/Service/GCM/RegistrationIntentService.java" afterPath="$PROJECT_DIR$/../app/src/main/java/brotic/findmyfriends/Service/GCM/RegistrationIntentService.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../app/src/main/res/layout/content_friend_details.xml" afterPath="$PROJECT_DIR$/../app/src/main/res/layout/content_friend_details.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../app/src/main/res/menu/menu_login.xml" afterPath="$PROJECT_DIR$/../app/src/main/res/menu/menu_login.xml" />
@@ -60,21 +61,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SecurityController.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="SecurityController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/ServerBundle/Controller/SecurityController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.65920824">
-              <caret line="129" column="204" selection-start-line="129" selection-start-column="204" selection-end-line="129" selection-end-column="204" />
+            <state vertical-scroll-proportion="-16.185184">
+              <caret line="114" column="20" selection-start-line="114" selection-start-column="20" selection-end-line="114" selection-end-column="20" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="GCMService.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="GCMService.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/ServerBundle/Services/GCMService.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.8518519">
-              <caret line="32" column="52" selection-start-line="32" selection-start-column="52" selection-end-line="32" selection-end-column="52" />
+            <state vertical-scroll-proportion="0.25645438">
+              <caret line="27" column="40" selection-start-line="27" selection-start-column="40" selection-end-line="27" selection-end-column="40" />
               <folding>
                 <element signature="e#6#73#0#PHP" expanded="true" />
               </folding>
@@ -118,8 +119,8 @@
         <option value="$PROJECT_DIR$/src/ServerBundle/Entity/User.php" />
         <option value="$PROJECT_DIR$/app/config/parameters.yml" />
         <option value="$PROJECT_DIR$/src/ServerBundle/Resources/config/services.yml" />
-        <option value="$PROJECT_DIR$/src/ServerBundle/Services/GCMService.php" />
         <option value="$PROJECT_DIR$/src/ServerBundle/Controller/SecurityController.php" />
+        <option value="$PROJECT_DIR$/src/ServerBundle/Services/GCMService.php" />
       </list>
     </option>
   </component>
@@ -905,21 +906,21 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ServerBundle/Services/GCMService.php">
+    <entry file="file://$PROJECT_DIR$/src/ServerBundle/Controller/SecurityController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.8518519">
-          <caret line="32" column="52" selection-start-line="32" selection-start-column="52" selection-end-line="32" selection-end-column="52" />
-          <folding>
-            <element signature="e#6#73#0#PHP" expanded="true" />
-          </folding>
+        <state vertical-scroll-proportion="-16.185184">
+          <caret line="114" column="20" selection-start-line="114" selection-start-column="20" selection-end-line="114" selection-end-column="20" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ServerBundle/Controller/SecurityController.php">
+    <entry file="file://$PROJECT_DIR$/src/ServerBundle/Services/GCMService.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.65920824">
-          <caret line="129" column="204" selection-start-line="129" selection-start-column="204" selection-end-line="129" selection-end-column="204" />
-          <folding />
+        <state vertical-scroll-proportion="0.25645438">
+          <caret line="27" column="40" selection-start-line="27" selection-start-column="40" selection-end-line="27" selection-end-column="40" />
+          <folding>
+            <element signature="e#6#73#0#PHP" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
