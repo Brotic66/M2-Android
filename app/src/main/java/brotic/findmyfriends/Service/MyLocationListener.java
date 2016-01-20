@@ -1,8 +1,12 @@
 package brotic.findmyfriends.Service;
 
+import android.Manifest;
+import android.content.pm.PackageManager;
 import android.location.Location;
 import android.location.LocationListener;
+import android.location.LocationManager;
 import android.os.Bundle;
+import android.support.v4.app.ActivityCompat;
 import android.util.Log;
 import android.widget.Toast;
 
@@ -27,37 +31,36 @@ import brotic.findmyfriends.Security.MyActivity;
  */
 public class MyLocationListener implements LocationListener {
 
+    private LocationManager manager;
+
+    /**
+     * @param locationManager
+     */
+    public MyLocationListener(LocationManager locationManager) {
+        this.manager = locationManager;
+    }
+
     @Override
     public void onLocationChanged(Location location) {
 
-            LocationUtils utils = new LocationUtils();
-        Log.d("==== ALERT fuck", "fuck !");
+        LocationUtils utils = new LocationUtils();
 
-            try {
-                FileInputStream file = MyActivity.getAct().openFileInput("saveForLocation");
-                ObjectInputStream is = new ObjectInputStream(file);
-                DataSaveForLocation s = (DataSaveForLocation) is.readObject();
-                file.close();
+        try {
+            BroticCommunication com = new BroticCommunication("position");
+            SendPositionTask task = new SendPositionTask();
 
-                BroticCommunication com = new BroticCommunication("position");
-                SendPositionTask task = new SendPositionTask();
+            com.addParamGet("id", String.valueOf(MyActivity.getSecurity().getUtilisateur().getId()));
+            com.addParamGet("token", MyActivity.getSecurity().getSid());
+            com.addParamGet("latitude", utils.getLatitude(location));
+            com.addParamGet("longitude", utils.getLongitude(location));
 
-                Log.d("==== ALERT", s.toString());
+            task.execute(com);
 
-                if (s != null) {
-                    com.addParamGet("id", String.valueOf(s.getId()));
-                    com.addParamGet("token", s.getToken());
-                    com.addParamGet("latitude", utils.getLatitude(location));
-                    com.addParamGet("longitude", utils.getLongitude(location));
-
-                    task.execute(com);
-
-                    Log.d("==== ALERT", com.getParamsGet().get("latitude"));
-                }
-            } catch (ClassNotFoundException | IOException e) {
+            manager.removeUpdates(this);
+            } catch (SecurityContextException e) {
                 e.printStackTrace();
             }
-        }
+    }
 
     @Override
     public void onStatusChanged(String provider, int status, Bundle extras) {

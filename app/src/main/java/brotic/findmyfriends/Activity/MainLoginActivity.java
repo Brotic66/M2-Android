@@ -19,7 +19,6 @@ import brotic.findmyfriends.Security.MyActivity;
 import brotic.findmyfriends.Service.ActivityLauncher;
 import brotic.findmyfriends.Service.GCM.RegistrationIntentService;
 import brotic.findmyfriends.Service.MyLocationListener;
-import brotic.findmyfriends.Service.PositionService;
 import brotic.findmyfriends.Service.ShakeEventManager;
 
 /**
@@ -69,7 +68,6 @@ public class MainLoginActivity extends MyActivity implements ShakeEventManager.S
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        stopService(new Intent(this, PositionService.class));
     }
 
     @Override
@@ -83,10 +81,9 @@ public class MainLoginActivity extends MyActivity implements ShakeEventManager.S
         if (!isShaked)
         {
             isShaked = true;
-            Toast.makeText(this, getString(R.string.locationSend), Toast.LENGTH_SHORT).show();
 
             LocationManager locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
-            LocationListener listener = new MyLocationListener();
+            LocationListener listener = new MyLocationListener(locationManager);
 
             if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
                 // TODO: Consider calling
@@ -96,13 +93,14 @@ public class MainLoginActivity extends MyActivity implements ShakeEventManager.S
                 //                                          int[] grantResults)
                 // to handle the case where the user grants the permission. See the documentation
                 // for ActivityCompat#requestPermissions for more details.
+                Toast.makeText(this.getBaseContext(), "Error", Toast.LENGTH_SHORT).show();
                 return;
             }
 
             locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0, listener);
             locationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, 0, 0, listener);
 
-            locationManager.removeUpdates(listener);
+            Toast.makeText(this, getString(R.string.locationSend), Toast.LENGTH_SHORT).show();
             isShaked = false;
         }
     }

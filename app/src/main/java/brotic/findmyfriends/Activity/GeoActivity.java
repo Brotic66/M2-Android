@@ -30,7 +30,6 @@ import brotic.findmyfriends.Security.MyActivity;
 import brotic.findmyfriends.Service.ActivityLauncher;
 import brotic.findmyfriends.Service.BroticCommunication;
 import brotic.findmyfriends.Service.MyLocationListener;
-import brotic.findmyfriends.Service.PositionService;
 import brotic.findmyfriends.Service.ShakeEventManager;
 
 /**
