@@ -22,10 +22,10 @@ class GCMService
         $this->gcmApiKey = $gcmApiKey;
     }
 
-    public function send($to, $data)
+    public function send($data, $to)
     {
         $post = array(
-            'data' => json_encode($data),
+            'data' => $data,
             'to' => $to
         );
 
