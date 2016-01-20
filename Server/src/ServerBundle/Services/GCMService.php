@@ -65,6 +65,6 @@ class GCMService
         curl_close( $ch );
 
         // Debug GCM response
-        echo $result;
+       // echo $result;
     }
 }

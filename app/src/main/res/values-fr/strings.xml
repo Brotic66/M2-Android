@@ -45,6 +45,6 @@
     <string name="askFriendAccept">vient de vous accepter</string>
     <string name="friendShareTitle">vient de partager sa nouvelle position</string>
     <string name="askPositionTitle">Demande de position</string>
-    <string name="askPosition">ets en train de regarder votre position</string>
+    <string name="askPosition">est en train de regarder votre position</string>
 
 </resources>

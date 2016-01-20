@@ -122,8 +122,8 @@ public class MyGcmListenerService extends GcmListenerService {
         android.support.v4.app.NotificationCompat.Builder mBuilder =
                 new NotificationCompat.Builder(this)
                         .setSmallIcon(R.drawable.ic_notification_red)
-                        .setContentTitle(getString(R.string.friendShareTitle))
-                        .setContentText(getString(R.string.friendShareTitle));
+                        .setContentTitle(username + " " + getString(R.string.friendShareTitle))
+                        .setContentText(username + " " + getString(R.string.friendShareTitle));
 
         Intent it = new Intent(this,LauncherActivity.class);
         PendingIntent resultPendingIntent =
