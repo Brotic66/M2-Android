@@ -318,4 +318,51 @@ class UserController extends NTAngularController
             'demandeDemande' => $userService->formatDemands($demandeDemande)
         ));
     }
+
+    /**
+     * @Route("/acceptFriend/{id}/{token}/{friendId}")
+     */
+    public function acceptFriedAction($id, $token, $friendId)
+    {
+        $userService = $this->get('server.user_service');
+        $em = $this->getDoctrine()->getManager();
+        $repository = $this->getDoctrine()->getRepository('ServerBundle:User');
+        $user = $repository->findOneBy(array(
+            'id' => $id
+        ));
+        $friend = $repository->findOneBy(array(
+            'id' => $friendId
+        ));
+
+        if (!$user || !$friend)
+            return $this->NTRender(array(
+                'response' => 404,
+                'message' => 'Utilisateur inconnu'
+            ));
+
+        if (!$userService->tokenExist($user, $token))
+            return $this->NTRender(array(
+                'response' => 0,
+                'message' => 'Erreur d\'authentification'
+            ));
+
+        $demande = $em->getRepository('ServerBundle:Demande')->findOneBy(array(
+            'demandeur' => $friend,
+            'demande' => $user
+        ));
+
+        if (!$demande)
+            return $this->NTRender(array(
+                'response' => 0,
+                'message' => 'Erreur d\'authentification'
+            ));
+
+        $user->addFriend($friend);
+        $em->remove($demande);
+        $em->flush();
+
+        return $this->NTRender(array(
+        'response' => 1
+    ));
+    }
 }
