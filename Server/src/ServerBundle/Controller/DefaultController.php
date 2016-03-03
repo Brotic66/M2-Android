@@ -3,10 +3,34 @@
 namespace ServerBundle\Controller;
 
 use Brotic66\NTAngularBundle\Controller\NTAngularController;
+use Brotic66\NTAngularBundle\Services\NTReturn;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use ServerBundle\Entity\Demande;
+use ServerBundle\Entity\User;
+use Symfony\Component\HttpFoundation\JsonResponse;
 
 class DefaultController extends NTAngularController
 {
+
+    /**
+     * @Route("/test-json")
+     */
+    public function testAction()
+    {
+        $user = new User();
+        $user->setUsername('test');
+        $user->setPhoneNumber('0627674523');
+        $object = new Demande();
+        $object->setDemandeur($user);
+
+        /*return new JsonResponse(array(
+            'object' => $object
+        ));*/
+
+        return $this->NTRender(array(
+            'object' => $object));
+    }
+
     /**
      * @Route("/friendsList/{id}/{token}/")
      */

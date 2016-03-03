@@ -17,7 +17,6 @@ use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 final class NTReturn
 {
     private $response;
-    private $synObjectsRef;
 
     /**
      * AngularReturn constructor.
@@ -25,7 +24,6 @@ final class NTReturn
     public function __construct()
     {
         $this->response = new Response();
-        $this->synObjectsRef = array();
         $this->response->headers->add(array('Access-Control-Allow-Headers' => 'Content-Type', 'Access-Control-Allow-Origin' => '*', 'Content-Type' => 'Application/json'));
     }
 
@@ -45,24 +43,6 @@ final class NTReturn
     private function prepare(array $params)
     {
         $toRtn = array();
-
-        foreach ($params as $name => $value) {
-            if (is_object($value)) {
-                $toRtn[$name] = $this->writeRef($value);
-                $this->synObjectsRef = $this->obj2Array($value);
-            } elseif (is_array($value)) {
-                $toRtn[$name] = $this->prepare($value);
-            } else {
-                $toRtn[$name] = $value;
-            }
-        }
-
-        return $toRtn;
-    }
-
-   /* private function prepare(array $params)
-    {
-        $toRtn = array();
         foreach ($params as $name => $value) {
             if (is_object($value)) {
                 $toRtn[$name] = $this->obj2Array($value);
@@ -73,7 +53,7 @@ final class NTReturn
             }
         }
         return $toRtn;
-    } */
+    }
 
     private function obj2Array($obj)
     {
@@ -101,12 +81,5 @@ final class NTReturn
         }
 
         return $toRtn;
-    }
-
-    private function writeRef($value)
-    {
-        return array(
-            'ref' => spl_object_hash($value)
-        );
     }
 }
